@@ -42,7 +42,7 @@ body{
     display: grid;
     margin-top: 10rem;
     margin-bottom: 5rem;
-    width: 100%;
+    width: 100vw;
 } 
 
 #inPut{
