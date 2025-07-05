@@ -1,16 +1,15 @@
 body{
     margin: auto;
-    font-family: 'Franklin Gothic Medium';
+    background-color: beige;
 }
-#top{
+.top{
     width: 100%;
     height: 4rem;
-    background-color: white;
     color: white;
     position:relative
 }
 
-#icons{
+.icons{
     position: absolute;
     right: 0;
     margin: 1rem;
@@ -18,7 +17,7 @@ body{
 
 
 
-#Employee_ID{
+.inputId{
     width: 25rem;
     height: 2rem;
     text-align: center;
@@ -28,15 +27,17 @@ body{
 }
 
 
-#loginBttn{
+.loginBttn{
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
     text-align: center;
     margin: 1rem;
-    border: 0.1rem solid black;
-    
+    border: none;
+    color: white;
+    background-color: black;
 }
+
 
 .LoginId{
     display: grid;
@@ -45,10 +46,10 @@ body{
     width: 100vw;
 } 
 
-#inPut{
+.inPut{
     margin: auto;
 }
 
-#Bttn{
+.Bttn{
     margin: auto;
 }
