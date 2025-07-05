@@ -15,7 +15,11 @@ body{
     margin: 1rem;
 }
 
-
+#newStaff{
+    position: absolute;
+    left: 0;
+    margin: 1rem;
+}
 
 .inputId{
     width: 25rem;
