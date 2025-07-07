@@ -1,5 +1,7 @@
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
+
+
 let admins = [
     {id: 36685, Name: "defualtAdmin"}
 ];
@@ -11,13 +13,21 @@ let employees = [
 const validateAdminId = () => {
     const adminInput = document.getElementById("AdminId").value.trim();
     const AdminExists = admins.some( admins => admins.id === Number(adminInput));
+    const wrongInput = document.getElementById("incorrect");
+    wrongInput = ""
     if(adminInput === "") {
-        console.log("Input ID")
+        if (wrongInput){
+            wrongInput.innerHTML = "Error: Input ID.";
+        }
     }else if (AdminExists){
-        console.log("Correct")
-        window.location.href = 'Admin_Dashboard.html'
-    }else{console.log("wrong ID")} 
+        window.location.href = 'Admin_Dashboard.html';
+    }else{
+        if(wrongInput) {
+            wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist."
+        }
+    };
 }
+  
 if (adminBttn) {
     adminBttn.addEventListener("click", validateAdminId);
   }
@@ -26,14 +36,21 @@ if (adminBttn) {
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
     const employeeExist =  employees.some(employees => employees.id === Number(employeeInput));
+    const wrongInput = document.getElementById("incorrect");
     
+    if(wrongInput) wrongInput.innerHTML = "";
+
     if(employeeInput === "") {
-        console.log("Input ID")
+        if (wrongInput){
+            wrongInput.innerHTML = " Error: Input ID."
+        }
     }else if (employeeExist) {
         console.log("Correct")
         window.location.href = 'Check_In_Out.html'
     } else{
-        console.log("Wrong ID")
+       if(wrongInput){
+        wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist.";
+       } 
     }
 }
 if (employeeBttn) {

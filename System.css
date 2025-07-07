@@ -48,6 +48,7 @@ body{
     margin-top: 10rem;
     margin-bottom: 5rem;
     width: 100vw;
+    text-align: center;
 } 
 
 .inPut{
@@ -71,4 +72,8 @@ body{
     text-align: center;
     font-weight: bolder;
     color: black;
+}
+
+#incorrect{
+    color: red;
 }
