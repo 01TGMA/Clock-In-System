@@ -14,7 +14,7 @@ const validateAdminId = () => {
     const adminInput = document.getElementById("AdminId").value.trim();
     const AdminExists = admins.some( admins => admins.id === Number(adminInput));
     const wrongInput = document.getElementById("incorrect");
-    wrongInput = ""
+    if (wrongInput) wrongInput.innerHTML = ""
     if(adminInput === "") {
         if (wrongInput){
             wrongInput.innerHTML = "Error: Input ID.";
