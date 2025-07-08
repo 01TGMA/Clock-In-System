@@ -77,3 +77,11 @@ body{
 #incorrect{
     color: red;
 }
+
+#TandD{
+    width: 16rem;
+    height: 7rem;
+    border: 0.125rem solid black ;
+    border-radius: 0.25rem;
+    overflow-y: scroll;
+}
