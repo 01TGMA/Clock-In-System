@@ -97,7 +97,7 @@ let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} $
 checkIn.addEventListener("click", checkin => {
     // console.log Check In time
     const now = new Date();
-    time.push(`Check In Time:, ${localTime}`);
+    time.push(`Check In Time: ${localTime}`);
     console.log(time)
     showTime()
 })
@@ -107,7 +107,7 @@ const checkOut = document.getElementById("checkout")
 checkOut.addEventListener("click", checkout => {
     // console.log Check out time
     const now = new Date();
-    time.push(`Check Out Time:, ${localTime}`);
+    time.push(`Check Out Time: ${localTime}`);
     console.log(time)
     showTime()
 })
