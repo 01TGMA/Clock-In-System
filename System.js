@@ -60,6 +60,17 @@ if (employeeBttn) {
   }
 const checkIn = document.getElementById('checkin')
 
+// Display
+
+const disPlay = document.getElementById("display-time"); 
+
+display = disPlay.innerHTML;
+const showTime = () => { 
+    for(i = 0; i < time.length; i++){
+        disPlay += `<li id="times"> ${time[i]}  </li>`
+    }
+}
+
 // time options
     const options = {
     weekday: 'short',
@@ -79,6 +90,7 @@ checkIn.addEventListener("click", checkin => {
     const localTime = now.toLocaleString('en-US', options);
     time.push(`Check In Time:", ${localTime}`);
     console.log(time)
+    showTime()
 })
 
 const checkOut = document.getElementById("checkout")
@@ -89,5 +101,5 @@ checkOut.addEventListener("click", checkout => {
     const localTime = now.toLocaleString('en-US', options);
     time.push(`Check Out Time:, ${localTime}`);
     console.log(time)
+    showTime()
 })
-    
