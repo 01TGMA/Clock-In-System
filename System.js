@@ -64,11 +64,13 @@ const checkIn = document.getElementById('checkin')
 
 const disPlay = document.getElementById("display-time"); 
 
-display = disPlay.innerHTML;
-const showTime = () => { 
+let display = ""
+
+let showTime = () => { 
     for(i = 0; i < time.length; i++){
-        disPlay += `<li id="times"> ${time[i]}  </li>`
+        display += `<li id="times"> ${time[i]}  </li>`
     }
+    disPlay.innerHTML = disPlay
 }
 
 // time options
