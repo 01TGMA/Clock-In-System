@@ -90,7 +90,7 @@ const year = now.getFullYear();
 const minute = now.getMinutes().toString().padStart(2, "0");
 const seconds = now.getSeconds().toString().padStart(2, "0");
 const ampm = hour > 12 ? "PM" : "AM";
-hour = hour % 12 || 12;
+hour == hour % 12 || 12;
 
 let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
 
