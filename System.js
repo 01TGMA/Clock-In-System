@@ -1,5 +1,6 @@
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
+let time = {}
 
 
 let admins = [
@@ -75,7 +76,8 @@ checkIn.addEventListener("click", checkin => {
     // console.log Check In time
     const now = new Date();
     const localTime = now.toLocaleString('en-US', options);
-    console.log("Check In Time:", localTime);
+    time.push("Check In Time:", localTime);
+    console.log(time)
 })
    
 const checkOut = document.getElementById("checkout")
@@ -84,6 +86,7 @@ checkOut.addEventListener("click", checkout => {
     // console.log Check out time
     const now = new Date();
     const localTime = now.toLocaleString('en-US', options);
-    console.log("Check Out Time:", localTime);
+    time.push("Check Out Time:", localTime);
+    console.log(time)
 })
     
