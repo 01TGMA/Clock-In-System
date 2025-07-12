@@ -56,3 +56,24 @@ const validateEmployeeId = () => {
 if (employeeBttn) {
     employeeBttn.addEventListener("click", validateEmployeeId)
   }
+const checkIn = document.getElementById('checkin')
+
+checkIn.addEventListener("click", checkin => {
+    //get time
+    const now = new Date();
+    const options = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+    };
+
+    // console.log time
+    const localTime = now.toLocaleString('en-US', options);
+    console.log("Check In Time:", localTime);
+
+})
