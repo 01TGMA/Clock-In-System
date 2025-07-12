@@ -69,11 +69,18 @@ checkIn.addEventListener("click", checkin => {
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
-    hour12: false
+    hour12: true
     };
 
-    // console.log time
     const localTime = now.toLocaleString('en-US', options);
-    console.log("Check In Time:", localTime);
 
+    // console.log Check In time
+    console.log("Check In Time:", localTime);
 })
+
+    // console.log Check out time
+const checkOut = document.getElementById("checkout")
+checkOut.addEventListener("click", checkout => {
+    console.log("Check Out Time:", localTime);
+})
+    
