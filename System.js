@@ -10,6 +10,7 @@ let employees = [
     {id: 48684, Name: "defualtAdmin"}
 ]
 
+//Validate Admin Id
 
 const validateAdminId = () => {
     const adminInput = document.getElementById("AdminId").value.trim();
@@ -33,7 +34,7 @@ if (adminBttn) {
     adminBttn.addEventListener("click", validateAdminId);
   }
 
-
+//Validate Employeee Id
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
     const employeeExist =  employees.some(employees => employees.id === Number(employeeInput));
@@ -79,7 +80,7 @@ checkIn.addEventListener("click", checkin => {
     time.push(`Check In Time:", ${localTime}`);
     console.log(time)
 })
-   
+
 const checkOut = document.getElementById("checkout")
 
 checkOut.addEventListener("click", checkout => {
