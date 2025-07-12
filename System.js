@@ -62,15 +62,15 @@ const checkIn = document.getElementById('checkin')
 
 // Display
 
-const disPlay = document.getElementById("display-time"); 
+let disPlay = document.getElementById("display-time"); 
 
 let display = ""
 
 let showTime = () => { 
-    for(i = 0; i < time.length; i++){
+    for(let i = 0; i < time.length; i++){
         display += `<li id="times"> ${time[i]}  </li>`
     }
-    disPlay.innerHTML = disPlay
+    disPlay.innerHTML = display
 }
 
 // time options
@@ -90,7 +90,7 @@ checkIn.addEventListener("click", checkin => {
     // console.log Check In time
     const now = new Date();
     const localTime = now.toLocaleString('en-US', options);
-    time.push(`Check In Time:", ${localTime}`);
+    time.push(`Check In Time:, ${localTime}`);
     console.log(time)
     showTime()
 })
