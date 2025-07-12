@@ -77,26 +77,30 @@ let showTime = () => {
 //Days and Months
 let now = new Date();
 
-const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
-const months = ["Jan", "Feb", "Mar", "Apr",
-    "May", "Jun", "Jul", "Aug",
-    "Sep", "Oct", "Nov", "Dec"]
 
-const day = days[now.getDay()];
-const month = months[now.getMonth()];
-const hour = now.getHours();
-const date = now.getDate();
-const year = now.getFullYear();
-const minute = now.getMinutes().toString().padStart(2, "0");
-const seconds = now.getSeconds().toString().padStart(2, "0");
-const ampm = hour > 12 ? "PM" : "AM";
-hour == hour % 12 || 12;
 
-let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
 
 checkIn.addEventListener("click", checkin => {
     // console.log Check In time
+    
     const now = new Date();
+
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+    const months = ["Jan", "Feb", "Mar", "Apr",
+        "May", "Jun", "Jul", "Aug",
+        "Sep", "Oct", "Nov", "Dec"]
+
+    const day = days[now.getDay()];
+    const month = months[now.getMonth()];
+    const hour = now.getHours();
+    const date = now.getDate();
+    const year = now.getFullYear();
+    const minute = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    const ampm = hour > 12 ? "PM" : "AM";
+    hour == hour % 12 || 12;
+
+    let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
     time.push(`Check In Time: ${localTime}`);
     console.log(time)
     showTime()
@@ -107,6 +111,23 @@ const checkOut = document.getElementById("checkout")
 checkOut.addEventListener("click", checkout => {
     // console.log Check out time
     const now = new Date();
+
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+    const months = ["Jan", "Feb", "Mar", "Apr",
+        "May", "Jun", "Jul", "Aug",
+        "Sep", "Oct", "Nov", "Dec"]
+
+    const day = days[now.getDay()];
+    const month = months[now.getMonth()];
+    const hour = now.getHours();
+    const date = now.getDate();
+    const year = now.getFullYear();
+    const minute = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    const ampm = hour > 12 ? "PM" : "AM";
+    hour == hour % 12 || 12;
+
+    let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
     time.push(`Check Out Time: ${localTime}`);
     console.log(time)
     showTime()
