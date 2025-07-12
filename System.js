@@ -88,7 +88,7 @@ const hour = now.getHours();
 const date = now.getDate();
 const year = now.getFullYear();
 const minute = now.getMinutes().toString().padStart(2, "0");
-const seconds = now.getSeconds().padStart(2, "0");
+const seconds = now.getSeconds().toString().padStart(2, "0");
 const ampm = hour > 12 ? "PM" : "AM";
 hour = hour % 12 || 12;
 
