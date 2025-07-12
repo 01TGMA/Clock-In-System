@@ -67,6 +67,7 @@ let disPlay = document.getElementById("display-time");
 let display = ""
 
 let showTime = () => { 
+    display = "";
     for(let i = 0; i < time.length; i++){
         display += `<li id="times"> ${time[i]}  </li>`
     }
