@@ -58,9 +58,7 @@ if (employeeBttn) {
   }
 const checkIn = document.getElementById('checkin')
 
-checkIn.addEventListener("click", checkin => {
-    //get time
-    const now = new Date();
+// time options
     const options = {
     weekday: 'short',
     year: 'numeric',
@@ -72,15 +70,20 @@ checkIn.addEventListener("click", checkin => {
     hour12: true
     };
 
-    const localTime = now.toLocaleString('en-US', options);
-
+    
+checkIn.addEventListener("click", checkin => {
     // console.log Check In time
+    const now = new Date();
+    const localTime = now.toLocaleString('en-US', options);
     console.log("Check In Time:", localTime);
 })
-
-    // console.log Check out time
+   
 const checkOut = document.getElementById("checkout")
+
 checkOut.addEventListener("click", checkout => {
+    // console.log Check out time
+    const now = new Date();
+    const localTime = now.toLocaleString('en-US', options);
     console.log("Check Out Time:", localTime);
 })
     
