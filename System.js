@@ -1,3 +1,22 @@
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBCNlDe16dILAEkjAg2wrnWOjVapYlJXRI",
+    authDomain: "clock-in-system-1bc1b.firebaseapp.com",
+    projectId: "clock-in-system-1bc1b",
+    storageBucket: "clock-in-system-1bc1b.firebasestorage.app",
+    messagingSenderId: "316047003696",
+    appId: "1:316047003696:web:8741b6817210de6debddf5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
 let time = []
@@ -60,7 +79,7 @@ if (employeeBttn) {
 }
 const checkIn = document.getElementById('checkin')
 
-// Display
+// Display Time 
 
 let disPlay = document.getElementById("display-time");
 
@@ -76,8 +95,6 @@ let showTime = () => {
 
 //Days and Months
 let now = new Date();
-
-
 
 
 checkIn.addEventListener("click", checkin => {
