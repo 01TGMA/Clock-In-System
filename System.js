@@ -159,7 +159,9 @@ if (checkOut) {
 }
 
 // generate ID
-const idGenerator = () => 
+const idGenerator = () => {
+    return "CLS" + Math.floor(Math.random() * 9999999)
+}
 
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
 
@@ -167,7 +169,8 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
       try {
         const docRef = await addDoc(collection(db, "users"), {
           name: "John Doe",
-          email: "john@example.com"
+          email: "john@example.com",
+          id: idGenerator()
         });
         console.log("Document written with ID: ", docRef.id);
         alert("Data saved!");
