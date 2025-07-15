@@ -178,7 +178,9 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
       } catch (e) {
         console.error("Error adding document: ", e);
       }
+ }
 
+ const timeData = new Date ().toString(); 
 import { updateDoc,doc,  arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
  async function update(docId, timeData){
     try{
