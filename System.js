@@ -171,15 +171,26 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
           name: "John Doe",
           email: "john@example.com",
           id: idGenerator(),
-          time: {}
+          time: []
         });
         console.log("Document written with ID: ", docRef.id);
         alert("Data saved!");
       } catch (e) {
         console.error("Error adding document: ", e);
       }
- async function update(){
 
+import { updateDoc,doc,  arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
+ async function update(docId, timeData){
+    try{
+        const userDoc = doc(db, "users", docId);
+        
+        await updateDoc(userDoc, {
+            time: arrayUnion(timeData)
+        });
+        aler(5);
+    }catch (e) {
+        alert(404)
+    }
  }
 
 if (adminBttn) {
