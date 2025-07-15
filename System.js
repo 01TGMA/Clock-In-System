@@ -181,6 +181,7 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
  }
 
  const timeData = new Date ().toString(); 
+ const docId = "B0aYzsQZD39WIo79fsI0"
 import { updateDoc,doc,  arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
  async function update(docId, timeData){
     try{
@@ -197,5 +198,7 @@ import { updateDoc,doc,  arrayUnion } from "https://www.gstatic.com/firebasejs/1
 
 if (adminBttn) {
     adminBttn.addEventListener("click", writeData);
+    adminBttn.addEventListener("dblclick", update(docId, timeData));
+
     
 }
