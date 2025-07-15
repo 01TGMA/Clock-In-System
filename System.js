@@ -190,15 +190,16 @@ import { updateDoc,doc,  arrayUnion } from "https://www.gstatic.com/firebasejs/1
         await updateDoc(userDoc, {
             time: arrayUnion(timeData)
         });
-        aler(5);
+        alert(5);
     }catch (e) {
         alert(404)
     }
  }
 
 if (adminBttn) {
-    adminBttn.addEventListener("click", writeData);
-    adminBttn.addEventListener("dblclick", update(docId, timeData));
+    adminBttn.addEventListener("click", update(docId, timeData));
+    //adminBttn.addEventListener("click", writeData);//
+    
 
     
 }
