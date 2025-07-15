@@ -101,7 +101,8 @@ let showTime = () => {
 let now = new Date();
 
 
-checkIn.addEventListener("click", checkin => {
+if (checkIn){
+    checkIn.addEventListener("click", checkin => {
     // console.log Check In time
     
     const now = new Date();
@@ -126,10 +127,12 @@ checkIn.addEventListener("click", checkin => {
     console.log(time)
     showTime()
 })
+}
+
 
 const checkOut = document.getElementById("checkout")
-
-checkOut.addEventListener("click", checkout => {
+if (checkOut) {
+    checkOut.addEventListener("click", checkout => {
     // console.log Check out time
     const now = new Date();
 
@@ -153,25 +156,28 @@ checkOut.addEventListener("click", checkout => {
     console.log(time)
     showTime()
 })
+}
 
+// generate ID
+const idGenerator = () => 
 
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
 
-const addUser = async () => {
-    try {
-    const docRef = await addDoc(collection(db, "users"), {
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815
-    });
-    console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-    console.error("Error adding document: ", e);
+ async function writeData() {
+      try {
+        const docRef = await addDoc(collection(db, "users"), {
+          name: "John Doe",
+          email: "john@example.com"
+        });
+        console.log("Document written with ID: ", docRef.id);
+        alert("Data saved!");
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     }
-};
-addUser()
+
 
 if (adminBttn) {
-    adminBttn.addEventListener("click", addUser);
+    adminBttn.addEventListener("click", writeData);
     
 }
