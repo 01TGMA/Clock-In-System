@@ -17,6 +17,9 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+  // Initialize Cloud Firestore and get a reference to the service
+  const db = getFirestore(app);
+
 
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
@@ -50,9 +53,9 @@ const validateAdminId = () => {
     };
 }
 
-if (adminBttn) {
-    adminBttn.addEventListener("click", validateAdminId);
-}
+//if (adminBttn) {
+   // adminBttn.addEventListener("click", validateAdminId);
+    //addUser()}//
 
 //Validate Employeee Id
 const validateEmployeeId = () => {
@@ -150,3 +153,25 @@ checkOut.addEventListener("click", checkout => {
     console.log(time)
     showTime()
 })
+
+
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
+
+const addUser = async () => {
+    try {
+    const docRef = await addDoc(collection(db, "users"), {
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+    });
+    console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+    console.error("Error adding document: ", e);
+    }
+};
+addUser()
+
+if (adminBttn) {
+    adminBttn.addEventListener("click", addUser);
+    
+}
