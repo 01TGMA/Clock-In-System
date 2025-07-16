@@ -200,8 +200,7 @@ body{
 
 
 #close{
-    top: 0;
-    position: relative;
+    display: inline-block;
     cursor: pointer;
-    right: 0;
+    font-size: 2rem;
 }
