@@ -167,7 +167,7 @@ let firstName = document.getElementById("createFistName");
 let lastName = document.getElementById("createLastName");
 let position = document.getElementById("JobPosition");
 let createEmployee = document.getElementById("createEmployee");
-
+let progress = document.getElementById("progress");
 // create user
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
@@ -190,13 +190,23 @@ async function writeData() {
 //create employee
 if (createEmployee){
     
-    createEmployee.addEventListener("click",  (e) => {
+    createEmployee.addEventListener("click",  async(e) => {
             
        try{ 
             e.preventDefault();
-            writeData();
+            await writeData();
+            progress.textContent = "Sucessfull";
+             progress.style.color = blue;
+           
+            setTimeout(() => {
+                location.reload();
+                }, 1500)
+
+            location.reload()
             
         } catch(e){
+            progress.textContent = "Error"
+            progress.style.color = red;
             alert("Error")
         }
 
