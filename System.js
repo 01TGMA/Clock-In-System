@@ -189,8 +189,6 @@ async function writeData() {
 
 //create employee
 if (createEmployee){
-
-    if(firstName && lastName && position){
         createEmployee.addEventListener("click",  async(e) => {
             
             createEmployee.disabled = true;
@@ -218,9 +216,6 @@ if (createEmployee){
             }              
       
         });
-    }else{
-            alert("Incomplete In")
-       }
 }
 
 //Close New Employee Section
