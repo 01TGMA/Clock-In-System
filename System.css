@@ -157,6 +157,8 @@ body{
 }
 
 #newEmployee{
+    display: ;
+    display: none;
     background-color: beige;
     margin: auto;
     position: relative;
@@ -198,9 +200,9 @@ body{
     margin-bottom: 0.12rem;
 }
 
-
 #close{
     display: inline-block;
     cursor: pointer;
     font-size: 2rem;
 }
+

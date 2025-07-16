@@ -223,3 +223,9 @@ let popUp = document.getElementById("newEmployee");
 closeIcon.addEventListener("click", () => {
   popUp.style.display = "none";  
 });
+
+let openIcon = document.getElementById("newStaff");
+let newEmployeeSection = document.getElementById("newEmployee");
+openIcon.addEventListener("click", () => {
+    newEmployeeSection.style.display = "contents";
+});
