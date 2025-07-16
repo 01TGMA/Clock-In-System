@@ -227,5 +227,5 @@ closeIcon.addEventListener("click", () => {
 let openIcon = document.getElementById("newStaff");
 let newEmployeeSection = document.getElementById("newEmployee");
 openIcon.addEventListener("click", () => {
-    newEmployeeSection.style.display = "contents";
+    newEmployeeSection.style.display = "block";
 });
