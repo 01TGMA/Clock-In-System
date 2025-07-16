@@ -160,7 +160,11 @@ body{
     margin: auto;
     width: 19rem;
     height: 19rem;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    overflow: hidden;
+    
 }
 
 #newEmployee h2{
@@ -168,6 +172,7 @@ body{
 }
 
 .newemployee{
+    margin-top: 0.5rem;
     text-align: center;
     width: 10rem;
     height: 2rem;
