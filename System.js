@@ -53,9 +53,9 @@ const validateAdminId = () => {
     };
 }
 
-//if (adminBttn) {
-   // adminBttn.addEventListener("click", validateAdminId);
-    //addUser()}//
+if (adminBttn) {
+   adminBttn.addEventListener("click", validateAdminId);
+    }
 
 //Validate Employeee Id
 const validateEmployeeId = () => {
@@ -100,7 +100,7 @@ let showTime = () => {
 //Days and Months
 let now = new Date();
 
-
+// checkIn
 if (checkIn){
     checkIn.addEventListener("click", checkin => {
     // console.log Check In time
@@ -129,7 +129,7 @@ if (checkIn){
 })
 }
 
-
+// checkOut
 const checkOut = document.getElementById("checkout")
 if (checkOut) {
     checkOut.addEventListener("click", checkout => {
@@ -163,6 +163,7 @@ const idGenerator = () => {
     return "CLS" + Math.floor(Math.random() * 9999999)
 }
 
+// create user
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
 
  async function writeData() {
@@ -179,52 +180,3 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
         console.error("Error adding document: ", e);
       }
  }
-
- const timeData = new Date ().toString(); 
- const docId = "B0aYzsQZD39WIo79fsI0"
-// import {query, collection, where, getDocs, updateDoc, doc, arrayUnion} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
-//  async function update(docId, timeData){
-//     try{
-//         const userDoc = doc(db, "users", docId);
-        
-//         await updateDoc(userDoc, {
-//             time: arrayUnion(timeData)
-//         });
-//         alert(5);
-//     }catch (e) {
-//         alert(404)
-//     }
-//  }
-
-import { query, collection, where, getDocs, updateDoc, doc, arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
-async function updateUserByCustomId(customId, timeData) {
-  try {
-    const q = query(collection(db, "users"), where("id", "==", customId));
-    const querySnapshot = await getDocs(q);
-
-    if (!querySnapshot.empty) {
-      querySnapshot.forEach(async (userDoc) => {
-        const userRef = doc(db, "users", userDoc.id);
-        await updateDoc(userRef, {
-          time: arrayUnion(timeData)
-        });
-        alert("Time updated!");
-      });
-    } else {
-      alert("No user found with that ID");
-    }
-  } catch (e) {
-    console.error("Error updating document:", e);
-    alert("Update failed");
-  }
-}
-
-
-if (adminBttn) {
-    adminBttn.addEventListener("click", update(docId, timeData));
-    //adminBttn.addEventListener("click", writeData);//
-    
-
-    
-}
