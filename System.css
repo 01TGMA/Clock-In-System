@@ -1,6 +1,7 @@
 body{
     margin: auto;
     background-color: beige;
+    overflow: hidden;
 }
 .top{
     width: 100%;
@@ -156,19 +157,20 @@ body{
 }
 
 #newEmployee{
-    background-color: black;
+    background-color: beige;
     margin: auto;
+    position: relative;
     width: 19rem;
     height: 19rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     overflow: hidden;
-    
+    border: 0.1rem solid black;
 }
 
 #newEmployee h2{
-    color: white;
+    color: black;
 }
 
 .newemployee{
@@ -176,4 +178,17 @@ body{
     text-align: center;
     width: 10rem;
     height: 2rem;
+    border-radius: 0.5rem;
+    border: 0;
+}
+
+#createEmployee{
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    margin: 1rem;
+    border: none;
+    color: white;
+    background-color: black;
 }
