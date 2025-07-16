@@ -167,7 +167,7 @@ let firstName = document.getElementById("createFistName");
 let lastName = document.getElementById("createLastName");
 let position = document.getElementById("JobPosition");
 let createEmployee = document.getElementById("createEmployee");
-
+console.log(firstName.value, lastName.value, position.value);
 
 // create user
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
@@ -184,11 +184,15 @@ async function writeData() {
         console.log("Document written with ID: ", docRef.id);
         alert("Data saved!");
     } catch (e) {
-        console.error("Error adding document: ", e);
+        console.error("Error adding document: ", (e) => {
+            e.preventDefault();
+            writeData();
+        });
     }
 }
 
 //create employee
 if (createEmployee){
-    createEmployee.addEventListener("click", writeData)
+
+    createEmployee.addEventListener("click",  writeData)
 }
