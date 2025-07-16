@@ -181,48 +181,48 @@ async function writeData() {
             time: []
         });
         console.log("Document written with ID: ", docRef.id);
-        
+
     } catch (e) {
-        console.error("Error adding document: ") 
+        console.error("Error adding document: ")
     }
 }
 
 //create employee
-if (createEmployee){
-        createEmployee.addEventListener("click",  async(e) => {
-            
-            createEmployee.disabled = true;
-            createEmployee.textContent = "Saving...";
-            
-        
-                try{ 
-                e.preventDefault();
-                await writeData();
+if (createEmployee) {
+    createEmployee.addEventListener("click", async (e) => {
 
-                progress.textContent = "Successfull";
-                progress.style.color = "green";
+        createEmployee.disabled = true;
+        createEmployee.textContent = "Saving...";
 
-                createEmployee.textContent = "Create";
-            
-                setTimeout(() => {
-                    location.reload();
-                    }, 2000)
 
-                
-            } catch(e){
-                progress.textContent = "Error"
-                progress.style.color = "red";
-                alert("Error")
-            }              
-      
-        });
+        try {
+            e.preventDefault();
+            await writeData();
+
+            progress.textContent = "Successfull";
+            progress.style.color = "green";
+
+            createEmployee.textContent = "Create";
+
+            setTimeout(() => {
+                location.reload();
+            }, 2000)
+
+
+        } catch (e) {
+            progress.textContent = "Error"
+            progress.style.color = "red";
+            alert("Error")
+        }
+
+    });
 }
 
 //Close New Employee Section
 let closeIcon = document.getElementById("close");
 let popUp = document.getElementById("newEmployee");
 closeIcon.addEventListener("click", () => {
-  popUp.style.display = "none";  
+    popUp.style.display = "none";
 });
 
 //Open Create Employee Section
@@ -231,3 +231,7 @@ let newEmployeeSection = document.getElementById("newEmployee");
 openIcon.addEventListener("click", () => {
     newEmployeeSection.style.display = "block";
 });
+
+// what it needs to do
+// check if input fields have inputs,
+// if they do proceed to run the fucntion. else shoot alert
