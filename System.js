@@ -1,24 +1,24 @@
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
+// Your web app's Firebase configuration
+const firebaseConfig = {
     apiKey: "AIzaSyBCNlDe16dILAEkjAg2wrnWOjVapYlJXRI",
     authDomain: "clock-in-system-1bc1b.firebaseapp.com",
     projectId: "clock-in-system-1bc1b",
     storageBucket: "clock-in-system-1bc1b.firebasestorage.app",
     messagingSenderId: "316047003696",
     appId: "1:316047003696:web:8741b6817210de6debddf5"
-  };
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-  // Initialize Cloud Firestore and get a reference to the service
-  const db = getFirestore(app);
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
 
 const adminBttn = document.getElementById("AdminSubmit");
@@ -34,7 +34,6 @@ let employees = [
 ]
 
 //Validate Admin Id
-
 const validateAdminId = () => {
     const adminInput = document.getElementById("AdminId").value.trim();
     const AdminExists = admins.some(admins => admins.id === Number(adminInput));
@@ -54,8 +53,8 @@ const validateAdminId = () => {
 }
 
 if (adminBttn) {
-   adminBttn.addEventListener("click", validateAdminId);
-    }
+    adminBttn.addEventListener("click", validateAdminId);
+}
 
 //Validate Employeee Id
 const validateEmployeeId = () => {
@@ -101,61 +100,61 @@ let showTime = () => {
 let now = new Date();
 
 // checkIn
-if (checkIn){
+if (checkIn) {
     checkIn.addEventListener("click", checkin => {
-    // console.log Check In time
-    
-    const now = new Date();
+        // console.log Check In time
 
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
-    const months = ["Jan", "Feb", "Mar", "Apr",
-        "May", "Jun", "Jul", "Aug",
-        "Sep", "Oct", "Nov", "Dec"]
+        const now = new Date();
 
-    const day = days[now.getDay()];
-    const month = months[now.getMonth()];
-    const hour = now.getHours();
-    const date = now.getDate();
-    const year = now.getFullYear();
-    const minute = now.getMinutes().toString().padStart(2, "0");
-    const seconds = now.getSeconds().toString().padStart(2, "0");
-    const ampm = hour > 12 ? "PM" : "AM";
-    hour == hour % 12 || 12;
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+        const months = ["Jan", "Feb", "Mar", "Apr",
+            "May", "Jun", "Jul", "Aug",
+            "Sep", "Oct", "Nov", "Dec"]
 
-    let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
-    time.push(`Check In Time: ${localTime}`);
-    console.log(time)
-    showTime()
-})
+        const day = days[now.getDay()];
+        const month = months[now.getMonth()];
+        const hour = now.getHours();
+        const date = now.getDate();
+        const year = now.getFullYear();
+        const minute = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const ampm = hour > 12 ? "PM" : "AM";
+        hour == hour % 12 || 12;
+
+        let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
+        time.push(`Check In Time: ${localTime}`);
+        console.log(time)
+        showTime()
+    })
 }
 
 // checkOut
 const checkOut = document.getElementById("checkout")
 if (checkOut) {
     checkOut.addEventListener("click", checkout => {
-    // console.log Check out time
-    const now = new Date();
+        // console.log Check out time
+        const now = new Date();
 
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
-    const months = ["Jan", "Feb", "Mar", "Apr",
-        "May", "Jun", "Jul", "Aug",
-        "Sep", "Oct", "Nov", "Dec"]
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+        const months = ["Jan", "Feb", "Mar", "Apr",
+            "May", "Jun", "Jul", "Aug",
+            "Sep", "Oct", "Nov", "Dec"]
 
-    const day = days[now.getDay()];
-    const month = months[now.getMonth()];
-    const hour = now.getHours();
-    const date = now.getDate();
-    const year = now.getFullYear();
-    const minute = now.getMinutes().toString().padStart(2, "0");
-    const seconds = now.getSeconds().toString().padStart(2, "0");
-    const ampm = hour > 12 ? "PM" : "AM";
-    hour == hour % 12 || 12;
+        const day = days[now.getDay()];
+        const month = months[now.getMonth()];
+        const hour = now.getHours();
+        const date = now.getDate();
+        const year = now.getFullYear();
+        const minute = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const ampm = hour > 12 ? "PM" : "AM";
+        hour == hour % 12 || 12;
 
-    let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
-    time.push(`Check Out Time: ${localTime}`);
-    console.log(time)
-    showTime()
-})
+        let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
+        time.push(`Check Out Time: ${localTime}`);
+        console.log(time)
+        showTime()
+    })
 }
 
 // generate ID
@@ -163,20 +162,28 @@ const idGenerator = () => {
     return "CLS" + Math.floor(Math.random() * 9999999)
 }
 
-// create user
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
+// New Employee
+let firstName = document.getElementById("createFistName");
+let lastName = document.getElementById("createLastName");
+let position = document.getElementById("JobPosition");
 
- async function writeData() {
-      try {
+
+// create user
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+async function writeData() {
+    try {
         const docRef = await addDoc(collection(db, "users"), {
-          name: "John Doe",
-          email: "john@example.com",
-          id: idGenerator(),
-          time: []
+            Firstname: firstName.value().trim(),
+            Lastname: lastName.value().trim(),
+            position: position.value().trim(),
+            id: idGenerator(),
+            time: []
         });
         console.log("Document written with ID: ", docRef.id);
         alert("Data saved!");
-      } catch (e) {
+    } catch (e) {
         console.error("Error adding document: ", e);
-      }
- }
+    }
+}
+
