@@ -189,41 +189,48 @@ async function writeData() {
 
 //create employee
 if (createEmployee){
-    
-    createEmployee.addEventListener("click",  async(e) => {
-        
-        createEmployee.disabled = true;
-        createEmployee.textContent = "Saving...";
-        
-       try{ 
-            e.preventDefault();
-            await writeData();
 
-            progress.textContent = "Successfull";
-            progress.style.color = "green";
-
-            createEmployee.textContent = "Create";
-           
-            setTimeout(() => {
-                location.reload();
-                }, 2000)
-
+    if(firstName && lastName && position){
+        createEmployee.addEventListener("click",  async(e) => {
             
-        } catch(e){
-            progress.textContent = "Error"
-            progress.style.color = "red";
-            alert("Error")
-        }
+            createEmployee.disabled = true;
+            createEmployee.textContent = "Saving...";
+            
+        
+                try{ 
+                e.preventDefault();
+                await writeData();
 
-    });
+                progress.textContent = "Successfull";
+                progress.style.color = "green";
+
+                createEmployee.textContent = "Create";
+            
+                setTimeout(() => {
+                    location.reload();
+                    }, 2000)
+
+                
+            } catch(e){
+                progress.textContent = "Error"
+                progress.style.color = "red";
+                alert("Error")
+            }              
+      
+        });
+    }else{
+            alert("Incomplete In")
+       }
 }
 
+//Close New Employee Section
 let closeIcon = document.getElementById("close");
 let popUp = document.getElementById("newEmployee");
 closeIcon.addEventListener("click", () => {
   popUp.style.display = "none";  
 });
 
+//Open Create Employee Section
 let openIcon = document.getElementById("newStaff");
 let newEmployeeSection = document.getElementById("newEmployee");
 openIcon.addEventListener("click", () => {
