@@ -175,9 +175,9 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
 async function writeData() {
     try {
         const docRef = await addDoc(collection(db, "users"), {
-            Firstname: firstName.value().trim(),
-            Lastname: lastName.value().trim(),
-            position: position.value().trim(),
+            Firstname: firstName.value.trim(),
+            Lastname: lastName.value.trim(),
+            position: position.value.trim(),
             id: idGenerator(),
             time: []
         });
