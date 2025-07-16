@@ -154,3 +154,16 @@ body{
 #times{
     color: black;
 }
+
+#newEmployee{
+    background-color: black;
+    margin: auto;
+    width: 19rem;
+    height: 19rem;
+}
+
+#createFistName #createLastName #JobPosition{
+    margin: auto;
+    width: 9rem;
+    height: 3rem;
+}
