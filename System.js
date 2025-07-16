@@ -191,22 +191,28 @@ async function writeData() {
 if (createEmployee){
     
     createEmployee.addEventListener("click",  async(e) => {
-            
+        
+        createEmployee.disabled = true;
+        createEmployee.textContent = "Saving...";
+        
        try{ 
             e.preventDefault();
             await writeData();
-            progress.textContent = "Sucessfull";
-             progress.style.color = blue;
+
+            progress.textContent = "Successfull";
+            progress.style.color = "green";
+
+            createEmployee.disabled = false;
+            createEmployee.textContent("Create")
            
             setTimeout(() => {
                 location.reload();
                 }, 1500)
 
-            location.reload()
             
         } catch(e){
             progress.textContent = "Error"
-            progress.style.color = red;
+            progress.style.color = "red";
             alert("Error")
         }
 
