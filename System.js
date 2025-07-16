@@ -166,6 +166,7 @@ const idGenerator = () => {
 let firstName = document.getElementById("createFistName");
 let lastName = document.getElementById("createLastName");
 let position = document.getElementById("JobPosition");
+let createEmployee = document.getElementById("createEmployee");
 
 
 // create user
@@ -187,3 +188,7 @@ async function writeData() {
     }
 }
 
+//create employee
+if (createEmployee){
+    createEmployee.addEventListener("click", writeData)
+}
