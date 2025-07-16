@@ -167,14 +167,12 @@ let firstName = document.getElementById("createFistName");
 let lastName = document.getElementById("createLastName");
 let position = document.getElementById("JobPosition");
 let createEmployee = document.getElementById("createEmployee");
-let progress = document.getElementById("progress");
-let status = progress.textContent;
+
 // create user
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 async function writeData() {
     try {
-        status = ""
         const docRef = await addDoc(collection(db, "users"), {
             Firstname: firstName.value.trim(),
             Lastname: lastName.value.trim(),
@@ -183,7 +181,7 @@ async function writeData() {
             time: []
         });
         console.log("Document written with ID: ", docRef.id);
-        status += "SuccesFull";
+        
     } catch (e) {
         console.error("Error adding document: ") 
     }
@@ -193,9 +191,16 @@ async function writeData() {
 if (createEmployee){
     
     createEmployee.addEventListener("click",  (e) => {
+            
+       try{ 
             e.preventDefault();
             writeData();
-        });
+            
+        } catch(e){
+            alert("Error")
+        }
+
+    });
     
     // writeData)
 }
