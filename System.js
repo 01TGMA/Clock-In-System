@@ -182,19 +182,44 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/f
 
  const timeData = new Date ().toString(); 
  const docId = "B0aYzsQZD39WIo79fsI0"
-import { updateDoc,doc,  arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
- async function update(docId, timeData){
-    try{
-        const userDoc = doc(db, "users", docId);
+// import {query, collection, where, getDocs, updateDoc, doc, arrayUnion} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"; 
+//  async function update(docId, timeData){
+//     try{
+//         const userDoc = doc(db, "users", docId);
         
-        await updateDoc(userDoc, {
-            time: arrayUnion(timeData)
+//         await updateDoc(userDoc, {
+//             time: arrayUnion(timeData)
+//         });
+//         alert(5);
+//     }catch (e) {
+//         alert(404)
+//     }
+//  }
+
+import { query, collection, where, getDocs, updateDoc, doc, arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+async function updateUserByCustomId(customId, timeData) {
+  try {
+    const q = query(collection(db, "users"), where("id", "==", customId));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach(async (userDoc) => {
+        const userRef = doc(db, "users", userDoc.id);
+        await updateDoc(userRef, {
+          time: arrayUnion(timeData)
         });
-        alert(5);
-    }catch (e) {
-        alert(404)
+        alert("Time updated!");
+      });
+    } else {
+      alert("No user found with that ID");
     }
- }
+  } catch (e) {
+    console.error("Error updating document:", e);
+    alert("Update failed");
+  }
+}
+
 
 if (adminBttn) {
     adminBttn.addEventListener("click", update(docId, timeData));
