@@ -192,3 +192,8 @@ body{
     color: white;
     background-color: black;
 }
+
+#progress{
+    margin-top: 0.5rem;
+    margin-bottom: 0.12rem;
+}

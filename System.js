@@ -202,12 +202,11 @@ if (createEmployee){
             progress.textContent = "Successfull";
             progress.style.color = "green";
 
-            createEmployee.disabled = false;
-            createEmployee.textContent("Create")
+            createEmployee.textContent = "Create";
            
             setTimeout(() => {
                 location.reload();
-                }, 1500)
+                }, 2000)
 
             
         } catch(e){
