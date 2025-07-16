@@ -216,6 +216,10 @@ if (createEmployee){
         }
 
     });
-    
-    // writeData)
 }
+
+let closeIcon = document.getElementById("close");
+let popUp = document.getElementById("newEmployee");
+closeIcon.addEventListener("click", () => {
+  popUp.style.display = "none";  
+});
