@@ -160,10 +160,15 @@ body{
     margin: auto;
     width: 19rem;
     height: 19rem;
+    align-items: center;
 }
 
-#createFistName #createLastName #JobPosition{
-    margin: auto;
-    width: 9rem;
-    height: 3rem;
+#newEmployee h2{
+    color: white;
+}
+
+.newemployee{
+    text-align: center;
+    width: 10rem;
+    height: 2rem;
 }
