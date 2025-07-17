@@ -93,24 +93,6 @@ const validateEmployeeId = () => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
         });
-
-
-
-
-    // if (wrongInput) wrongInput.innerHTML = "";
-
-    // if (employeeInput === "") {
-    //     if (wrongInput) {
-    //         wrongInput.innerHTML = " Error: Input ID."
-    //     }
-    // } else if (employeeExist) {
-    //     console.log("Correct")
-    //     window.location.href = 'Check_In_Out.html'
-    // } else {
-    //     if (wrongInput) {
-    //         wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist.";
-    //     }
-    // }
 }
 
 if (employeeBttn) {
