@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import { getFirestore, collection, addDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -63,22 +63,29 @@ const validateEmployeeId = () => {
     const employeeExist = employees.some(employees => employees.id === Number(employeeInput));
     const wrongInput = document.getElementById("incorrect");
 
-    const db = getFirestore();
 
-const q = query(              
-  collection(db, "users"),    
-  where("id", "==", employeeInput) 
-);
+    const q = query(
+        collection(db, "users"),
+        where("id", "==", employeeInput)
+    );
 
-getDocs(q)
-  .then((querySnapshot) => {  
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, "=>", doc.data());
-    });
-  })
-  .catch((error) => {
-    console.log("Error");  
-  });
+    getDocs(q)
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, "=>", doc.data());
+
+                wrongInput.textContent = "Access Granted"
+                wrongInput.style.color = "green"
+
+                setTimeout(() => {
+                    window.location.href = "Check_In_Out.html"
+                }, 1500)
+            });
+        })
+        .catch((error) => {
+            wrongInput.textContent = " Error: Input ID."
+            wrongInput.style.color = "red"
+        });
 
 
 
@@ -256,7 +263,7 @@ if (createEmployee) {
 let closeIcon = document.getElementById("close");
 let popUp = document.getElementById("newEmployee");
 
-if(closeIcon){
+if (closeIcon) {
     closeIcon.addEventListener("click", () => {
         popUp.style.display = "none";
     });
@@ -266,7 +273,7 @@ if(closeIcon){
 let openIcon = document.getElementById("newStaff");
 let newEmployeeSection = document.getElementById("newEmployee");
 
-if(openIcon){
+if (openIcon) {
     openIcon.addEventListener("click", () => {
         newEmployeeSection.style.display = "block";
     });
