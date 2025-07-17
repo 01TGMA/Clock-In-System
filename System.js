@@ -69,6 +69,12 @@ const validateEmployeeId = () => {
         where("id", "==", employeeInput)
     );
 
+    if (where("id", "!==", employeeInput)){
+        wrongInput.textContent = "Incorrect ID";
+        wrongInput.style.color = "red"
+        return;
+    }
+        
     getDocs(q)
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
