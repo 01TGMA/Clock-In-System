@@ -113,9 +113,14 @@ const employeeName = document.getElementById("EmployeeName");
 const employeeJobPosition = document.getElementById("EmployeePosition")
 
 
-    const employeedata = JSON.parse(sessionStorage.getItem("EmployeeData"))
+const employeedata = JSON.parse(sessionStorage.getItem("EmployeeData"))
 
-if(employeedata){}
+if(employeedata){
+    //display name
+    employeeName = `${employeedata.Firstname} ${employeedata.Lastname}`
+    employeeJobPosition = `${employeedata.position}`
+
+}
 
 
 
