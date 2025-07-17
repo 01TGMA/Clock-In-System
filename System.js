@@ -57,33 +57,49 @@ if (adminBttn) {
 }
 
 //Validate Employeee Id
+import { query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
     const employeeExist = employees.some(employees => employees.id === Number(employeeInput));
     const wrongInput = document.getElementById("incorrect");
 
-    if (wrongInput) wrongInput.innerHTML = "";
+    db.collection("users")
+    .where("id", "==", employeeInput)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, "=>", doc.data());
+        });
+    })
+    .catch((error) => {
+        console.log("Error")
+    })
 
-    if (employeeInput === "") {
-        if (wrongInput) {
-            wrongInput.innerHTML = " Error: Input ID."
-        }
-    } else if (employeeExist) {
-        console.log("Correct")
-        window.location.href = 'Check_In_Out.html'
-    } else {
-        if (wrongInput) {
-            wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist.";
-        }
-    }
+
+
+
+    // if (wrongInput) wrongInput.innerHTML = "";
+
+    // if (employeeInput === "") {
+    //     if (wrongInput) {
+    //         wrongInput.innerHTML = " Error: Input ID."
+    //     }
+    // } else if (employeeExist) {
+    //     console.log("Correct")
+    //     window.location.href = 'Check_In_Out.html'
+    // } else {
+    //     if (wrongInput) {
+    //         wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist.";
+    //     }
+    // }
 }
+
 if (employeeBttn) {
     employeeBttn.addEventListener("click", validateEmployeeId)
 }
 const checkIn = document.getElementById('checkin')
 
 // Display Time 
-
 let disPlay = document.getElementById("display-time");
 
 let display = ""
@@ -168,6 +184,7 @@ let lastName = document.getElementById("createLastName");
 let position = document.getElementById("JobPosition");
 let createEmployee = document.getElementById("createEmployee");
 let progress = document.getElementById("progress");
+
 // create user
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
