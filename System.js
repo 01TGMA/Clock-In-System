@@ -80,7 +80,11 @@ const validateEmployeeId = () => {
 
             querySnapshot.forEach((doc) => {
                     const employeeData = doc.data()
-                    sessionStorage.setItem("Employee Data: ", Json.stringify(employeeData))
+                    
+                    sessionStorage.setItem("Employee Data: ", Json.stringify(employeeData));
+
+                    sessionStorage.setItem("EmployeeDocID: ", Json.stringify(doc.id))
+
 
                     //console.log(doc.id, "=>", doc.data());
 
