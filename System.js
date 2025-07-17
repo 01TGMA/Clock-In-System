@@ -72,11 +72,13 @@ const validateEmployeeId = () => {
 
     getDocs(q)
         .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                if (querySnapshot.empty) {
+            if (querySnapshot.empty) {
                     wrongInput.textContent = "Wrong Id"
                     wrongInput.style.color = "red"
-                } else {
+                    return;
+                }
+
+            querySnapshot.forEach((doc) => {
                     console.log(doc.id, "=>", doc.data());
 
                     wrongInput.textContent = "Access Granted"
@@ -85,9 +87,7 @@ const validateEmployeeId = () => {
                     setTimeout(() => {
                         window.location.href = "Check_In_Out.html"
                     }, 1500)
-                }
-
-            });
+                });
         })
         .catch((error) => {
             wrongInput.textContent = " Error!"
