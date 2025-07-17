@@ -93,6 +93,8 @@ const validateEmployeeId = () => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
         });
+
+        // store data in local storage/ session
 }
 
 if (employeeBttn) {
