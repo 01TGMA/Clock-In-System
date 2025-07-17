@@ -191,12 +191,24 @@ async function writeData() {
 if (createEmployee) {
     createEmployee.addEventListener("click", async (e) => {
 
+        e.preventDefault();
+
+        if (firstName.value.trim() === "" ||
+            lastName.value.trim() === "" ||
+            position.value.trim() === ""
+        ) {
+            progress.textContent = "Incomplete Information";
+            progress.style.color = "orange";
+            return;
+        }
+
+
         createEmployee.disabled = true;
         createEmployee.textContent = "Saving...";
 
 
         try {
-            e.preventDefault();
+
             await writeData();
 
             progress.textContent = "Successfull";
@@ -231,7 +243,3 @@ let newEmployeeSection = document.getElementById("newEmployee");
 openIcon.addEventListener("click", () => {
     newEmployeeSection.style.display = "block";
 });
-
-// what it needs to do
-// check if input fields have inputs,
-// if they do proceed to run the fucntion. else shoot alert
