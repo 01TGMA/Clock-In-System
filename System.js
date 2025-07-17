@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -57,23 +57,28 @@ if (adminBttn) {
 }
 
 //Validate Employeee Id
-import { query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
     const employeeExist = employees.some(employees => employees.id === Number(employeeInput));
     const wrongInput = document.getElementById("incorrect");
 
-    db.collection("users")
-    .where("id", "==", employeeInput)
-    .get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(doc.id, "=>", doc.data());
-        });
-    })
-    .catch((error) => {
-        console.log("Error")
-    })
+    const db = getFirestore();
+
+const q = query(              
+  collection(db, "users"),    
+  where("id", "==", employeeInput) 
+);
+
+getDocs(q)
+  .then((querySnapshot) => {  
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, "=>", doc.data());
+    });
+  })
+  .catch((error) => {
+    console.log("Error");  
+  });
 
 
 
@@ -186,7 +191,7 @@ let createEmployee = document.getElementById("createEmployee");
 let progress = document.getElementById("progress");
 
 // create user
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+//import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 async function writeData() {
     try {
