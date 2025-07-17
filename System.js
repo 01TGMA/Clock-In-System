@@ -250,9 +250,12 @@ if (createEmployee) {
 //Close New Employee Section
 let closeIcon = document.getElementById("close");
 let popUp = document.getElementById("newEmployee");
-closeIcon.addEventListener("click", () => {
-    popUp.style.display = "none";
-});
+
+if(closeIcon){
+    closeIcon.addEventListener("click", () => {
+        popUp.style.display = "none";
+    });
+}
 
 //Open Create Employee Section
 let openIcon = document.getElementById("newStaff");
