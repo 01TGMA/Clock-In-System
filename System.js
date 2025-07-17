@@ -109,6 +109,19 @@ if (employeeBttn) {
 }
 const checkIn = document.getElementById('checkin')
 
+// Display Employee Details
+const employeeName = document.getElementById("EmployeeName");
+const employeeJobPosition = document.getElementById("EmployeePosition")
+
+if(employeeName && employeeJobPosition){
+    
+}
+
+
+
+
+
+
 // Display Time 
 let disPlay = document.getElementById("display-time");
 
