@@ -260,6 +260,9 @@ if(closeIcon){
 //Open Create Employee Section
 let openIcon = document.getElementById("newStaff");
 let newEmployeeSection = document.getElementById("newEmployee");
-openIcon.addEventListener("click", () => {
-    newEmployeeSection.style.display = "block";
-});
+
+if(openIcon){
+    openIcon.addEventListener("click", () => {
+        newEmployeeSection.style.display = "block";
+    });
+}
