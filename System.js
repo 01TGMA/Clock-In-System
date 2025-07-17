@@ -69,7 +69,6 @@ const validateEmployeeId = () => {
         where("id", "==", employeeInput)
     );
 
-
     getDocs(q)
         .then((querySnapshot) => {
             if (querySnapshot.empty) {
@@ -81,7 +80,7 @@ const validateEmployeeId = () => {
             querySnapshot.forEach((doc) => {
                     const employeeData = doc.data()
                     
-                    sessionStorage.setItem("Employee Data", JSON.stringify(employeeData));
+                    sessionStorage.setItem("EmployeeData", JSON.stringify(employeeData));
 
                     sessionStorage.setItem("EmployeeDocID", JSON.stringify(doc.id))
 
@@ -113,9 +112,11 @@ const checkIn = document.getElementById('checkin')
 const employeeName = document.getElementById("EmployeeName");
 const employeeJobPosition = document.getElementById("EmployeePosition")
 
-if(employeeName && employeeJobPosition){
-    
-}
+
+    const nameOfEmployee = JSON.parse(sessionStorage.getItem("EmployeeData.firstName"))
+    const idOfEmployee = sessionStorage.getItem("EmployeeData.position")
+
+if(employeeName){}
 
 
 
