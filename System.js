@@ -79,7 +79,10 @@ const validateEmployeeId = () => {
                 }
 
             querySnapshot.forEach((doc) => {
-                    console.log(doc.id, "=>", doc.data());
+                    const employeeData = doc.data()
+                    sessionStorage.setItem("Employee Data: ", Json.stringify(employeeData))
+
+                    //console.log(doc.id, "=>", doc.data());
 
                     wrongInput.textContent = "Access Granted"
                     wrongInput.style.color = "green"
@@ -94,7 +97,7 @@ const validateEmployeeId = () => {
             wrongInput.style.color = "red"
         });
 
-        // store data in local storage/ session
+        
 }
 
 if (employeeBttn) {
