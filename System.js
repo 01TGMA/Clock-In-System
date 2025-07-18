@@ -41,7 +41,7 @@ const validateAdminId = () => {
 
     const p = query(
         collection(db, "admins"),
-        where("id", "==", adminInput)
+        where("ID", "==", adminInput)
     );
 
     getDocs(p)
@@ -54,7 +54,8 @@ const validateAdminId = () => {
             querySnapshot.forEach((doc) => {
                 const employeeData = doc.data()
 
-                wrongInput.innerHTML = "Access Granted"                
+                wrongInput.innerHTML = "Access Granted";
+                wrongInput.style.color = "green"                
 
                 setTimeout(() => {
                     window.location.href = "Adim_Dashboard.html"
