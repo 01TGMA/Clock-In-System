@@ -245,12 +245,16 @@ if (checkOut) {
 //Display time
 const tdDisplay = document.getElementById("display-time")
 const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
-if(!Array.isArray(sessionTime.time)){
-    sessionTime.time
-    for(let i = 0;i < sessionTime.time.length; i++);
-    tdDisplay.innerHTML += `${sessionTime[i]}` 
+let disPlay;
+const displayUserTime = () => {
+    if(!Array.isArray(sessionTime.time)){
+        disPlay = ""
+        sessionTime.time
+        for(let i = 0;i < sessionTime.time.length; i++);
+        disPlay = `<li id="times"> ${sessionTime[i]} </li>` 
+        tdDisplay.innerHTML =  disPlay;
+    }
 }
-
 // GET ARRAY FROM SES...
 //loop through the array
 //and add to display ul. 
