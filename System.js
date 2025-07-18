@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, query, where, getDocs, arrayUnion, UpdateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -143,17 +143,25 @@ if (employeedata) {
 
 
 // Display Time 
-let disPlay = document.getElementById("display-time");
+// let disPlay = document.getElementById("display-time");
 
-let display = ""
+// let display = ""
 
-let showTime = () => {
-    display = "";
-    for (let i = 0; i < time.length; i++) {
-        display += `<li id="times"> ${time[i]}  </li>`
-    }
-    disPlay.innerHTML = display
-}
+// let showTime = () => {
+//     display = "";
+//     for (let i = 0; i < time.length; i++) {
+//         display += `<li id="times"> ${time[i]}  </li>`
+//     }
+//     disPlay.innerHTML = display
+// }
+
+//Update time to data base
+
+const timeUpdate = doc(db, "users", "users.EmployeeDocID", "time")
+await updateDoc( timeUpdate, {
+    time: `Check In: ${localTime}`
+})
+
 
 //Days and Months
 let now = new Date();
@@ -181,9 +189,9 @@ if (checkIn) {
         hour == hour % 12 || 12;
 
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
-        time.push(`Check In Time: ${localTime}`);
+        time.push(`Check In: ${localTime}`);
         console.log(time)
-        showTime()
+        //showTime()
     })
 }
 
