@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import { getFirestore, doc, collection, updateDoc, addDoc, query, where, getDocs, arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { use } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -155,14 +156,15 @@ if (employeedata && employeeName && employeeJobPosition) {
 // }
 
 //Update time to database
-const employeedocId = sessionStorage.getItem("EmployeeDocID")
+const  userTimeUpdate = async () => {
+    const employeedocId = sessionStorage.getItem("EmployeeDocID")
 
-const userTime = doc(db, "users", employeedocId )
+    const userTime = doc(db, "users", employeedocId )
 
-await updateDoc(userTime, {
-  time: arrayUnion(`Check In: ${localTime}`)
-});
-
+    await updateDoc(userTime, {
+    time: arrayUnion(`Check In: ${localTime}`)
+    });
+}
 
 //Days and Months
 let now = new Date();
@@ -191,6 +193,7 @@ if (checkIn) {
 
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
         time.push(`Check In: ${localTime}`);
+        userTimeUpdate();
         console.log(time)
         //showTime()
     })
