@@ -38,18 +38,47 @@ const validateAdminId = () => {
     const adminInput = document.getElementById("AdminId").value.trim();
     const AdminExists = admins.some(admins => admins.id === Number(adminInput));
     const wrongInput = document.getElementById("incorrect");
-    if (wrongInput) wrongInput.innerHTML = ""
-    if (adminInput === "") {
-        if (wrongInput) {
-            wrongInput.innerHTML = "Error: Input ID.";
-        }
-    } else if (AdminExists) {
-        window.location.href = 'Admin_Dashboard.html';
-    } else {
-        if (wrongInput) {
-            wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist."
-        }
-    };
+
+    const p = query(
+        collection(db, "admins"),
+        where("id", "==", adminInput)
+    );
+
+    getDocs(p)
+        .then((querySnapshot) => {
+            if (querySnapshot.empty) {
+                wrongInput.innerHTML = "Wrong ID"
+                return;
+            }
+
+            querySnapshot.forEach((doc) => {
+                const employeeData = doc.data()
+
+                wrongInput.innerHTML = "Access Granted"                
+
+                setTimeout(() => {
+                    window.location.href = "Adim_Dashboard.html"
+                }, 1500);
+
+            })
+        })
+        .catch((error) => {
+                wrongInput.textContent = " Error!"
+                wrongInput.style.color = "red"
+        });
+
+    // if (wrongInput) wrongInput.innerHTML = ""
+    // if (adminInput === "") {
+    //     if (wrongInput) {
+    //         wrongInput.innerHTML = "Error: Input ID.";
+    //     }
+    // } else if (AdminExists) {
+    //     window.location.href = 'Admin_Dashboard.html';
+    // } else {
+    //     if (wrongInput) {
+    //         wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist."
+    //     }
+    // };
 }
 
 if (adminBttn) {
@@ -72,35 +101,35 @@ const validateEmployeeId = () => {
     getDocs(q)
         .then((querySnapshot) => {
             if (querySnapshot.empty) {
-                    wrongInput.textContent = "Wrong Id"
-                    wrongInput.style.color = "red"
-                    return;
-                }
+                wrongInput.textContent = "Wrong Id"
+                wrongInput.style.color = "red"
+                return;
+            }
 
             querySnapshot.forEach((doc) => {
-                    const employeeData = doc.data()
-                    
-                    sessionStorage.setItem("EmployeeData", JSON.stringify(employeeData));
+                const employeeData = doc.data()
 
-                    sessionStorage.setItem("EmployeeDocID", JSON.stringify(doc.id))
+                sessionStorage.setItem("EmployeeData", JSON.stringify(employeeData));
+
+                sessionStorage.setItem("EmployeeDocID", JSON.stringify(doc.id))
 
 
-                    //console.log(doc.id, "=>", doc.data());
+                //console.log(doc.id, "=>", doc.data());
 
-                    wrongInput.textContent = "Access Granted"
-                    wrongInput.style.color = "green"
+                wrongInput.textContent = "Access Granted"
+                wrongInput.style.color = "green"
 
-                    setTimeout(() => {
-                        window.location.href = "Check_In_Out.html"
-                    }, 1500)
-                });
+                setTimeout(() => {
+                    window.location.href = "Check_In_Out.html"
+                }, 1500)
+            });
         })
         .catch((error) => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
         });
 
-        
+
 }
 
 if (employeeBttn) {
@@ -115,16 +144,12 @@ const employeeJobPosition = document.getElementById("EmployeePosition")
 
 const employeedata = JSON.parse(sessionStorage.getItem("EmployeeData"))
 
-if(employeedata){
+if (employeedata) {
     //display name
     employeeName.textContent = `Name: ${employeedata.Firstname} ${employeedata.Lastname}`
     employeeJobPosition.textContent = `Position: ${employeedata.position}`
 
 }
-
-
-
-
 
 
 // Display Time 
