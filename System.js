@@ -176,6 +176,19 @@ if (checkIn) {
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
         // time.push(`Check In: ${localTime}`);
 
+        //Update sessionStorage
+                 
+        const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+
+        if(!Array.isArray(sessionTime.time)){
+            sessionTime.time = [];
+        }
+
+        sessionTime.time.push(`Check Out Time: ${localTime}`)
+        sessionStorage.setItem("EmployeeData", JSON.stringify(sessionTime));
+
+
+        // Update  database
         const employeedocId = JSON.parse(sessionStorage.getItem("EmployeeDocID"))
         const userTime = doc(db, "users", employeedocId )
 
