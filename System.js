@@ -157,13 +157,7 @@ if (employeedata && employeeName && employeeJobPosition) {
 
 //Update time to database
 const  userTimeUpdate = async () => {
-    const employeedocId = sessionStorage.getItem("EmployeeDocID")
-
-    const userTime = doc(db, "users", employeedocId )
-
-    await updateDoc(userTime, {
-    time: arrayUnion(`Check In: ${localTime}`)
-    });
+   
 }
 
 //Days and Months
@@ -193,7 +187,14 @@ if (checkIn) {
 
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
         time.push(`Check In: ${localTime}`);
-        userTimeUpdate();
+        
+        const employeedocId = sessionStorage.getItem("EmployeeDocID")
+        const userTime = doc(db, "users", employeedocId )
+
+        updateDoc(userTime, {
+        time: arrayUnion(`Check In: ${localTime}`)
+        });
+
         console.log(time)
         //showTime()
     })
