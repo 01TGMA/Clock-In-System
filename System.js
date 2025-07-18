@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import { getFirestore, collection, addDoc, query, where, getDocs, arrayUnion, UpdateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, query, where, getDocs, arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -155,12 +155,8 @@ if (employeedata) {
 //     disPlay.innerHTML = display
 // }
 
-//Update time to data base
+//Update time to database
 
-const timeUpdate = doc(db, "users", "users.EmployeeDocID", "time")
-await updateDoc( timeUpdate, {
-    time: `Check In: ${localTime}`
-})
 
 
 //Days and Months
