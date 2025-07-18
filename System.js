@@ -45,41 +45,30 @@ const validateAdminId = () => {
     );
 
     getDocs(p)
-        .then((querySnapshot) => {
-            if (querySnapshot.empty) {
-                wrongInput.innerHTML = "Wrong ID"
-                return;
-            }
+    .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+            wrongInput.innerHTML = "Wrong ID"
+            return;
+        }
 
-            querySnapshot.forEach((doc) => {
-                const employeeData = doc.data()
+        querySnapshot.forEach((doc) => {
+            const employeeData = doc.data()
 
-                wrongInput.innerHTML = "Access Granted";
-                wrongInput.style.color = "green"                
+            wrongInput.innerHTML = "Access Granted";
+            wrongInput.style.color = "green"
 
-                setTimeout(() => {
-                    window.location.href = "Admin_Dashboard.html"
-                }, 1500);
+            setTimeout(() => {
+                window.location.href = "Admin_Dashboard.html"
+            }, 1500);
 
-            })
         })
-        .catch((error) => {
-                wrongInput.textContent = " Error!"
-                wrongInput.style.color = "red"
-        });
+    })
+    .catch((error) => {
+        wrongInput.textContent = " Error!"
+        wrongInput.style.color = "red"
+    });
 
-    // if (wrongInput) wrongInput.innerHTML = ""
-    // if (adminInput === "") {
-    //     if (wrongInput) {
-    //         wrongInput.innerHTML = "Error: Input ID.";
-    //     }
-    // } else if (AdminExists) {
-    //     window.location.href = 'Admin_Dashboard.html';
-    // } else {
-    //     if (wrongInput) {
-    //         wrongInput.innerHTML = "Error: Failed to login <br>ID does not exist."
-    //     }
-    // };
+
 }
 
 if (adminBttn) {
