@@ -174,7 +174,7 @@ if (checkIn) {
         hour == hour % 12 || 12;
 
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
-        time.push(`Check In: ${localTime}`);
+        // time.push(`Check In: ${localTime}`);
 
         const employeedocId = JSON.parse(sessionStorage.getItem("EmployeeDocID"))
         const userTime = doc(db, "users", employeedocId )
@@ -211,13 +211,19 @@ if (checkOut) {
         hour == hour % 12 || 12;
 
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
-        time.push(`Check Out Time: ${localTime}`);
-        console.log(time)
+        //time.push(`Check Out Time: ${localTime}`);
+        //console.log(time)
         
         // push to SessionStorage
 
-        const time = JSON.parse(sessionStorage.getItem(EmployeeData)) || [];
-        time.time.push(`Check Out Time: ${localTime}`)
+        const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+
+        if(!Array.isArray(sessionTime.time)){
+            sessionTime.time = [];
+        }
+
+        sessionTime.time.push(`Check Out Time: ${localTime}`)
+        sessionStorage.setItem("EmployeeData", JSON.stringify(sessionTime));
 
 
 
