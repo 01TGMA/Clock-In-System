@@ -117,8 +117,8 @@ const employeedata = JSON.parse(sessionStorage.getItem("EmployeeData"))
 
 if(employeedata){
     //display name
-    employeeName = `Name: ${employeedata.Firstname} ${employeedata.Lastname}`
-    employeeJobPosition = `Position: ${employeedata.position}`
+    employeeName.textContent = `Name: ${employeedata.Firstname} ${employeedata.Lastname}`
+    employeeJobPosition.textContent = `Position: ${employeedata.position}`
 
 }
 
