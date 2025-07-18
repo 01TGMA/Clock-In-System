@@ -23,7 +23,7 @@ const db = getFirestore(app);
 
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
-let time = []
+
 
 
 let admins = [
@@ -214,6 +214,14 @@ if (checkOut) {
         time.push(`Check Out Time: ${localTime}`);
         console.log(time)
         
+        // push to SessionStorage
+
+        const time = JSON.parse(sessionStorage.getItem(EmployeeData)) || [];
+        time.time.push(`Check Out Time: ${localTime}`)
+
+
+
+        // push to Firebase
         const employeedocId = JSON.parse(sessionStorage.getItem("EmployeeDocID"))
         const userTime = doc(db, "users", employeedocId )
 
