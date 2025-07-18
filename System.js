@@ -26,12 +26,6 @@ const employeeBttn = document.getElementById("Esubmit");
 
 
 
-let admins = [
-    { id: 36685, Name: "defualtAdmin" }
-];
-let employees = [
-    { id: 48684, Name: "defualtAdmin" }
-]
 
 //Validate Admin Id
 const validateAdminId = () => {
@@ -76,7 +70,6 @@ if (adminBttn) {
 }
 
 //Validate Employeee Id
-
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
     const employeeExist = employees.some(employees => employees.id === Number(employeeInput));
@@ -127,10 +120,9 @@ if (employeeBttn) {
 }
 const checkIn = document.getElementById('checkin')
 
-// Display Employee Details
+// Employee Details
 const employeeName = document.getElementById("EmployeeName");
 const employeeJobPosition = document.getElementById("EmployeePosition")
-
 const employeedata = JSON.parse(sessionStorage.getItem("EmployeeData"))
 
 if (employeedata && employeeName && employeeJobPosition) {
@@ -139,8 +131,6 @@ if (employeedata && employeeName && employeeJobPosition) {
     employeeJobPosition.textContent = `Position: ${employeedata.position}`
 
 }
-
-
 
 
 //Update time to database
@@ -177,7 +167,7 @@ if (checkIn) {
         // time.push(`Check In: ${localTime}`);
 
         //Update sessionStorage
-                 
+
         const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
 
         if(!Array.isArray(sessionTime.time)){
@@ -252,6 +242,20 @@ if (checkOut) {
     })
 }
 
+//Display time
+const tdDisplay = document.getElementById("display-time")
+const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+if(!Array.isArray(sessionTime.time)){
+    sessionTime.time
+    for(let i = 0;i < sessionTime.time.length; i++);
+    tdDisplay.innerHTML += `${sessionTime[i]}` 
+}
+
+// GET ARRAY FROM SES...
+//loop through the array
+//and add to display ul. 
+
+
 // generate ID
 const idGenerator = () => {
     return "CLS" + Math.floor(Math.random() * 9999999)
@@ -265,8 +269,6 @@ let createEmployee = document.getElementById("createEmployee");
 let progress = document.getElementById("progress");
 
 // create user
-//import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
 async function writeData() {
     try {
         const docRef = await addDoc(collection(db, "users"), {
