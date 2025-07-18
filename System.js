@@ -58,7 +58,7 @@ const validateAdminId = () => {
                 wrongInput.style.color = "green"                
 
                 setTimeout(() => {
-                    window.location.href = "Adim_Dashboard.html"
+                    window.location.href = "Admin_Dashboard.html"
                 }, 1500);
 
             })
