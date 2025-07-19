@@ -131,7 +131,7 @@ if (employeedata && employeeName && employeeJobPosition && tdDisplay) {
 
     const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
 
-
+    // display time history
     if(Array.isArray(sessionTime.time)){
         let disPlay = ""
 
@@ -149,25 +149,6 @@ if (employeedata && employeeName && employeeJobPosition && tdDisplay) {
 
 
 }
-
-// if(tdDisplay){
-//      
-//      let disPlay = ""
-//      if(Array.isArray(sessionTime.time)){
-//          disPlay = ""
-
-//          for(let i = 0; i < sessionTime.time.length; i++){
-//            let  disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
-//          }
-
-//          tdDisplay.innerHTML =  disPlay;
-
-//      }else{
-//          disPlay += `<li id="times"> No CheckIn/Out History </li>`;
-//          tdDisplay.innerHTML = disPlay;
-//      }
-//     }
-
 
 //Days and Months
 let now = new Date();
@@ -277,23 +258,23 @@ if (checkOut) {
 
 //Display time
 const displayUserTime = () => {
-//     const tdDisplay = document.getElementById("display-time")
-//     const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
-//     let disPlay = ""
-//     if(Array.isArray(sessionTime.time)){
+    const tdDisplay = document.getElementById("display-time")
+    const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+    let disPlay = ""
+    if(Array.isArray(sessionTime.time)){
 
-//         disPlay = ""
+        disPlay = ""
 
-//         for(let i = 0; i < sessionTime.time.length; i++){
-//             disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
-//         }
+        for(let i = 0; i < sessionTime.time.length; i++){
+            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
+        }
 
-//         tdDisplay.innerHTML =  disPlay;
+        tdDisplay.innerHTML =  disPlay;
 
-//     }else{
-//         disPlay += `<li id="times"> No CheckIn/Out History </li>`;
-//         tdDisplay.innerHTML = disPlay;
-//     }
+    }else{
+        disPlay += `<li id="times"> No CheckIn/Out History </li>`;
+        tdDisplay.innerHTML = disPlay;
+    }
 }
 
 // generate ID
