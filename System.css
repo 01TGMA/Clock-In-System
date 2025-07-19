@@ -1,7 +1,8 @@
 body{
     margin: auto;
     background-color: beige;
-    overflow: hidden;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .top{
@@ -10,6 +11,10 @@ body{
     color: white;
     position:fixed;
     top: 0;
+}
+
+#top{
+    position: fixed;
 }
 
 .icons{
@@ -212,17 +217,13 @@ body{
 #allEmployees{
     display: grid;
     box-sizing: border-box;
-    position: absolute;
+    gap: 1rem;
     grid-template-columns: repeat(4, auto);
     margin: auto;
     background-color: transparent;
     width: 90%;
     height: fit-content;
     margin-top: 7rem;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    top: 0;
 }
 
 @media screen and (max-width: 480px){
