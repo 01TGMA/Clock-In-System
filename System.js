@@ -70,7 +70,6 @@ const validateAdminId = () => {
 
             querySnapshot.forEach((doc) => {
                 const employee = doc.data()
-                employee.id = doc.id
                 allEmployees.push(employee)
                 sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
             });
@@ -94,7 +93,7 @@ if (allemployeeDiv) {
     let showAllEmployees = ""
 
     for (let i = 0; i < storedEmployees.length; i++) {
-        showAllEmployees += `<div class="empDiv">  <p>Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> Job Position: ${storedEmployees[i].position}</p> </div>`;
+        showAllEmployees += `<div class="empDiv">  <p>Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> Job Position: ${storedEmployees[i].position} <br> ID: ${storedEmployees[i].id} </p> </div>`;
     }
     allemployeeDiv.innerHTML = showAllEmployees;
     console.log(showAllEmployees)
@@ -180,9 +179,6 @@ if (employeedata && employeeName && employeeJobPosition && tdDisplay) {
     } else {
         tdDisplay.innerHTML = `<li id="times"> No CheckIn/Out History </li>`;
     }
-
-
-
 
 }
 
@@ -335,11 +331,10 @@ async function writeData() {
             id: idGenerator(),
             time: []
         });
-        console.log("Document written with ID: ", docRef.id);
 
     } catch (e) {
         console.error("Error adding document: ")
-    }
+    }    
 }
 
 //create employee
@@ -370,22 +365,22 @@ if (createEmployee) {
             progress.style.color = "green";
 
             createEmployee.textContent = "Create";
+            
 
             setTimeout(() => {
                 location.reload();
-            }, 2000)
+            }, 2500)
 
 
         } catch (e) {
             progress.textContent = "Error"
             progress.style.color = "red";
-            alert("Error")
         }
 
     });
 }
 
-//Close New Employee Section
+//Close create Employee Section
 let closeIcon = document.getElementById("close");
 let popUp = document.getElementById("newEmployee");
 
