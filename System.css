@@ -236,12 +236,16 @@ body{
 
 .empDiv{
     background-color: bisque;
-    width: 12rem;
-    height: fit-content;
+    width: 15rem;
+    height: 7rem;
     margin: 0.5rem;
     color: black;
 }
 
 .empDiv p{
     margin: 1rem;
+}
+
+#emp_I{
+    margin: auto;
 }
