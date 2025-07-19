@@ -20,12 +20,8 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
-
-
-
 
 //Validate Admin Id
 const validateAdminId = () => {
@@ -101,18 +97,20 @@ const validateEmployeeId = () => {
                 wrongInput.textContent = "Access Granted"
                 wrongInput.style.color = "green"
 
+                displayUserTime()
+
                 setTimeout(() => {
                     window.location.href = "Check_In_Out.html"
                 }, 1500)
             });
+
+            
         })
         .catch((error) => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
         });
-
-
-}
+    }
 
 if (employeeBttn) {
     employeeBttn.addEventListener("click", validateEmployeeId)
@@ -130,9 +128,6 @@ if (employeedata && employeeName && employeeJobPosition) {
     employeeJobPosition.textContent = `Position: ${employeedata.position}`
 
 }
-
-
-
 
 //Days and Months
 let now = new Date();
@@ -243,27 +238,24 @@ if (checkOut) {
 //Display time
 
 const displayUserTime = () => {
-    const tdDisplay = document.getElementById("display-time")
-    const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+//     const tdDisplay = document.getElementById("display-time")
+//     const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+//     let disPlay = ""
+//     if(Array.isArray(sessionTime.time)){
 
-    if(Array.isArray(sessionTime.time)){
+//         disPlay = ""
 
-        let disPlay = ""
+//         for(let i = 0; i < sessionTime.time.length; i++){
+//             disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
+//         }
 
-        for(let i = 0; i < sessionTime.time.length; i++){
-            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
-        }
+//         tdDisplay.innerHTML =  disPlay;
 
-        tdDisplay.innerHTML =  disPlay;
-
-    }else{
-        disPlay = `<li id="times"> No CheckIn/Out History </li>`;
-        tdDisplay.innerHTML = disPlay;
-    }
+//     }else{
+//         disPlay += `<li id="times"> No CheckIn/Out History </li>`;
+//         tdDisplay.innerHTML = disPlay;
+//     }
 }
-// GET ARRAY FROM SES...
-//loop through the array
-//and add to display ul. 
 
 
 // generate ID
