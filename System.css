@@ -212,6 +212,7 @@ body{
 
 #allEmployees{
     position: absolute;
+    display: grid;
     margin: auto;
     background-color: black;
     width: 90%;
@@ -222,4 +223,8 @@ body{
     bottom: 0;
     top: 0;
     
+}
+
+#empDiv{
+
 }

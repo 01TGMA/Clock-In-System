@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import { getFirestore, doc, collection, updateDoc, addDoc, query, where, getDocs, arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { createElement } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -92,9 +93,9 @@ const storedEmployees = JSON.parse(sessionStorage.getItem("allEmployees")) || []
 
 if(allemployeeDiv){
     let showAllEmployees = ""
-
+    
     for(let i = 0; i < storedEmployees.length; i++){
-        showAllEmployees += storedEmployees[i];
+        showAllEmployees += `<div id="empDiv"> ${storedEmployees[i]} </div>`;
         
     }
     console.log(showAllEmployees)
