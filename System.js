@@ -57,6 +57,28 @@ const validateAdminId = () => {
             wrongInput.style.color = "red"
         });
 
+    // get all employees
+     const r = query(
+            collection(db, "users")
+        );
+
+    getDocs(r)
+    .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+        }
+        const allEmployees = [];
+
+        querySnapshot.forEach((doc) => {
+            const employee = doc.data()
+            employee.id = doc.id
+            allEmployees.push(employee)
+            sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+        });
+
+    })
+    .catch((error) => {
+    });
+
 
 }
 
@@ -370,21 +392,23 @@ if (openIcon) {
 
 
 
-const r = query(
-        collection(db, "users")
-    );
+// const r = query(
+//         collection(db, "users")
+//     );
 
-getDocs(r)
-.then((querySnapshot) => {
-    if (querySnapshot.empty) {
-    }
+// getDocs(r)
+// .then((querySnapshot) => {
+//     if (querySnapshot.empty) {
+//     }
+//     const allEmployees = [];
 
-    querySnapshot.forEach((doc) => {
-        const allEmployees = doc.data()
+//     querySnapshot.forEach((doc) => {
+//         const employee = doc.data()
+//         employee.id = doc.id
+//         allEmployees.push(employee)
+//         sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+//     });
 
-        sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
-    });
-
-})
-.catch((error) => {
-});
+// })
+// .catch((error) => {
+// });
