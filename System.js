@@ -34,7 +34,7 @@ const validateAdminId = () => {
     );
 
     getDocs(p)
-        .then((querySnapshot) => {
+    .then((querySnapshot) => {
             if (querySnapshot.empty) {
                 wrongInput.innerHTML = "Wrong ID"
                 return;
@@ -51,16 +51,16 @@ const validateAdminId = () => {
                 }, 1500);
 
             })
-        })
-        .catch((error) => {
+    })
+    .catch((error) => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
-        });
-
+    });
+    
     // get all employees
-     const r = query(
+    const r = query(
             collection(db, "users")
-        );
+    );
 
     getDocs(r)
     .then((querySnapshot) => {
@@ -85,6 +85,22 @@ const validateAdminId = () => {
 if (adminBttn) {
     adminBttn.addEventListener("click", validateAdminId);
 }
+
+//display all Employees
+const allemployeeDiv = document.getElementById("allEmployees")
+const storedEmployees = JSON.parse(sessionStorage.getItem("allEmployees")) || [];
+
+if(allemployeeDiv){
+    let showAllEmployees = ""
+
+    for(let i = 0; i < storedEmployees.length; i++){
+        showAllEmployees += storedEmployees[i];
+        
+    }
+    console.log(showAllEmployees)
+}
+
+
 
 //Validate Employeee Id
 const validateEmployeeId = () => {
