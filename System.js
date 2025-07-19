@@ -367,3 +367,24 @@ if (openIcon) {
         newEmployeeSection.style.display = "block";
     });
 }
+
+
+
+const r = query(
+        collection(db, "users")
+    );
+
+getDocs(r)
+.then((querySnapshot) => {
+    if (querySnapshot.empty) {
+    }
+
+    querySnapshot.forEach((doc) => {
+        const allEmployees = doc.data()
+
+        sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+    });
+
+})
+.catch((error) => {
+});
