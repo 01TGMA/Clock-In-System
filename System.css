@@ -163,6 +163,7 @@ body{
     position: relative;
     width: 19rem;
     height: 19rem;
+    z-index: 99999;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -184,7 +185,6 @@ body{
 }
 
 #createEmployee{
-    z-index: 99999rem;
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -214,7 +214,6 @@ body{
 #allEmployees{
     display: grid;
     box-sizing: border-box;
-    overflow: scroll;
     position: absolute;
     grid-template-columns: repeat(4, auto);
     margin: auto;
