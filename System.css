@@ -211,9 +211,9 @@ body{
 }
 
 #allEmployees{
-    position: absolute;
     display: grid;
-    column-gap: 50px;
+    position: absolute;
+    grid-template-columns: repeat(4, auto);
     margin: auto;
     background-color: white;
     width: 90%;
@@ -223,14 +223,12 @@ body{
     left: 0;
     bottom: 0;
     top: 0;
-    
 }
 
-#empDiv{
+.empDiv{
     background-color: bisque;
-    width: 3rem;
-    height: 2rem;
-    margin: auto;
-    margin-top: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    margin: 0.5rem;
     color: black;
 }
