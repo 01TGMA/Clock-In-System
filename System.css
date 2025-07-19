@@ -204,3 +204,8 @@ body{
     cursor: pointer;
     font-size: 2rem;
 }
+
+#times{
+    list-style-type: none;
+    margin-top: 0.55rem;
+}
