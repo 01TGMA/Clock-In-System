@@ -72,7 +72,6 @@ if (adminBttn) {
 //Validate Employeee Id
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
-    const employeeExist = employees.some(employees => employees.id === Number(employeeInput));
     const wrongInput = document.getElementById("incorrect");
 
 
@@ -133,10 +132,7 @@ if (employeedata && employeeName && employeeJobPosition) {
 }
 
 
-//Update time to database
-const  userTimeUpdate = async () => {
-   
-}
+
 
 //Days and Months
 let now = new Date();
@@ -185,8 +181,8 @@ if (checkIn) {
         updateDoc(userTime, {
         time: arrayUnion(`Check In: ${localTime}`)
         });
-
-        console.log(time)
+        
+        displayUserTime()
         //showTime()
     })
 }
@@ -237,13 +233,14 @@ if (checkOut) {
         updateDoc(userTime, {
         time: arrayUnion(`Check Out: ${localTime}`)
         });
+
+        displayUserTime()
         
         //showTime()
     })
 }
 
 //Display time
-
 
 const displayUserTime = () => {
     const tdDisplay = document.getElementById("display-time")
@@ -254,7 +251,7 @@ const displayUserTime = () => {
         let disPlay = ""
 
         for(let i = 0; i < sessionTime.time.length; i++){
-            disPlay = `<li id="times"> ${sessionTime.time[i]} </li>` 
+            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
         }
 
         tdDisplay.innerHTML =  disPlay;
