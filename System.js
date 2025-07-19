@@ -25,8 +25,7 @@ const employeeBttn = document.getElementById("Esubmit");
 
 //Validate Admin Id
 const validateAdminId = () => {
-    const adminInput = document.getElementById("AdminId").value.trim();
-    const AdminExists = admins.some(admins => admins.id === Number(adminInput));
+    const adminInput = document.getElementById("AdminId").value.trim()
     const wrongInput = document.getElementById("incorrect");
 
     const p = query(
@@ -35,28 +34,28 @@ const validateAdminId = () => {
     );
 
     getDocs(p)
-    .then((querySnapshot) => {
-        if (querySnapshot.empty) {
-            wrongInput.innerHTML = "Wrong ID"
-            return;
-        }
+        .then((querySnapshot) => {
+            if (querySnapshot.empty) {
+                wrongInput.innerHTML = "Wrong ID"
+                return;
+            }
 
-        querySnapshot.forEach((doc) => {
-            const employeeData = doc.data()
+            querySnapshot.forEach((doc) => {
+                const employeeData = doc.data()
 
-            wrongInput.innerHTML = "Access Granted";
-            wrongInput.style.color = "green"
+                wrongInput.innerHTML = "Access Granted";
+                wrongInput.style.color = "green"
 
-            setTimeout(() => {
-                window.location.href = "Admin_Dashboard.html"
-            }, 1500);
+                setTimeout(() => {
+                    window.location.href = "Admin_Dashboard.html"
+                }, 1500);
 
+            })
         })
-    })
-    .catch((error) => {
-        wrongInput.textContent = " Error!"
-        wrongInput.style.color = "red"
-    });
+        .catch((error) => {
+            wrongInput.textContent = " Error!"
+            wrongInput.style.color = "red"
+        });
 
 
 }
@@ -97,19 +96,19 @@ const validateEmployeeId = () => {
                 wrongInput.textContent = "Access Granted"
                 wrongInput.style.color = "green"
 
-                displayUserTime()
+                
 
                 setTimeout(() => {
                     window.location.href = "Check_In_Out.html"
                 }, 1500)
             });
-  
+
         })
         .catch((error) => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
         });
-    }
+}
 
 if (employeeBttn) {
     employeeBttn.addEventListener("click", validateEmployeeId)
@@ -132,19 +131,19 @@ if (employeedata && employeeName && employeeJobPosition && tdDisplay) {
     const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
 
     // display time history
-    if(Array.isArray(sessionTime.time)){
+    if (Array.isArray(sessionTime.time)) {
         let disPlay = ""
 
-        for(let i = 0; i < sessionTime.time.length; i++){
-            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
+        for (let i = 0; i < sessionTime.time.length; i++) {
+            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>`
         }
 
-        tdDisplay.innerHTML =  disPlay;
-    }else{
+        tdDisplay.innerHTML = disPlay;
+    } else {
         disPlay += `<li id="times"> No CheckIn/Out History </li>`;
         tdDisplay.innerHTML = disPlay;
     }
-    
+
 
 
 
@@ -182,7 +181,7 @@ if (checkIn) {
 
         const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
 
-        if(!Array.isArray(sessionTime.time)){
+        if (!Array.isArray(sessionTime.time)) {
             sessionTime.time = [];
         }
 
@@ -192,12 +191,12 @@ if (checkIn) {
 
         // Update  database
         const employeedocId = JSON.parse(sessionStorage.getItem("EmployeeDocID"))
-        const userTime = doc(db, "users", employeedocId )
+        const userTime = doc(db, "users", employeedocId)
 
         updateDoc(userTime, {
-        time: arrayUnion(`Check In: ${localTime}`)
+            time: arrayUnion(`Check In: ${localTime}`)
         });
-        
+
         displayUserTime()
         //showTime()
     })
@@ -228,12 +227,12 @@ if (checkOut) {
         let localTime = `${hour}:${minute}:${seconds} ${ampm}, ${day} ${date} ${month} ${year}`
         //time.push(`Check Out Time: ${localTime}`);
         //console.log(time)
-        
+
         // push to SessionStorage
 
         const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
 
-        if(!Array.isArray(sessionTime.time)){
+        if (!Array.isArray(sessionTime.time)) {
             sessionTime.time = [];
         }
 
@@ -244,14 +243,14 @@ if (checkOut) {
 
         // push to Firebase
         const employeedocId = JSON.parse(sessionStorage.getItem("EmployeeDocID"))
-        const userTime = doc(db, "users", employeedocId )
+        const userTime = doc(db, "users", employeedocId)
 
         updateDoc(userTime, {
-        time: arrayUnion(`Check Out: ${localTime}`)
+            time: arrayUnion(`Check Out: ${localTime}`)
         });
 
         displayUserTime()
-        
+
         //showTime()
     })
 }
@@ -261,17 +260,17 @@ const displayUserTime = () => {
     const tdDisplay = document.getElementById("display-time")
     const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
     let disPlay = ""
-    if(Array.isArray(sessionTime.time)){
+    if (Array.isArray(sessionTime.time)) {
 
         disPlay = ""
 
-        for(let i = 0; i < sessionTime.time.length; i++){
-            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
+        for (let i = 0; i < sessionTime.time.length; i++) {
+            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>`
         }
 
-        tdDisplay.innerHTML =  disPlay;
+        tdDisplay.innerHTML = disPlay;
 
-    }else{
+    } else {
         disPlay += `<li id="times"> No CheckIn/Out History </li>`;
         tdDisplay.innerHTML = disPlay;
     }
