@@ -94,7 +94,7 @@ if (allemployeeDiv) {
     let showAllEmployees = ""
 
     for (let i = 0; i < storedEmployees.length; i++) {
-        showAllEmployees += `<div class="empDiv">  Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> Job Position: ${storedEmployees[i].position} </div>`;
+        showAllEmployees += `<div class="empDiv">  <p>Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname}</p> <br> <p>Job Position: ${storedEmployees[i].position}</p> </div>`;
     }
     allemployeeDiv.innerHTML = showAllEmployees;
     console.log(showAllEmployees)

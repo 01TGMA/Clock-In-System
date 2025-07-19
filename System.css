@@ -212,12 +212,14 @@ body{
 
 #allEmployees{
     display: grid;
+    box-sizing: border-box;
+    overflow: hidden;
     position: absolute;
     grid-template-columns: repeat(4, auto);
     margin: auto;
     background-color: white;
     width: 90%;
-    height: 10rem;
+    height: fit-content;
     margin-top: 7rem;
     right: 0;
     left: 0;
@@ -225,10 +227,18 @@ body{
     top: 0;
 }
 
+@media screen and (min-width: 480px){
+    #allEmployees{
+        grid-template-columns: repeat(1, auto);
+    }
+}
+
 .empDiv{
     background-color: bisque;
-    width: fit-content;
-    height: fit-content;
+    width: 12rem;
+    height: 5rem;
+    align-items: center;
+    text-align: left;
     margin: 0.5rem;
     color: black;
 }
