@@ -184,6 +184,7 @@ body{
 }
 
 #createEmployee{
+    z-index: 99999rem;
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -227,9 +228,10 @@ body{
     top: 0;
 }
 
-@media screen and (min-width: 480px){
+@media screen and (max-width: 480px){
     #allEmployees{
         grid-template-columns: repeat(1, auto);
+        justify-content: center;
     }
 }
 
@@ -237,8 +239,10 @@ body{
     background-color: bisque;
     width: 12rem;
     height: 5rem;
-    align-items: center;
-    text-align: left;
     margin: 0.5rem;
     color: black;
+}
+
+.empDiv p{
+    margin: 1rem;
 }
