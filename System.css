@@ -24,12 +24,12 @@ body{
 }
 
 .inputId{
-    width: 25rem;
+    width: 24rem;
     height: 2rem;
     text-align: center;
     border-radius: 0.5rem;
     border: 0.125rem solid black;
-    margin: 1rem;
+    margin: auto;
 }
 
 
@@ -214,11 +214,11 @@ body{
 #allEmployees{
     display: grid;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: scroll;
     position: absolute;
     grid-template-columns: repeat(4, auto);
     margin: auto;
-    background-color: white;
+    background-color: transparent;
     width: 90%;
     height: fit-content;
     margin-top: 7rem;
