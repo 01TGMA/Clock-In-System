@@ -100,7 +100,6 @@ if (allemployeeDiv) {
 }
 
 
-
 //Validate Employeee Id
 const validateEmployeeId = () => {
     const employeeInput = document.getElementById("EmployeeId").value.trim();
@@ -375,6 +374,9 @@ if (createEmployee) {
         } catch (e) {
             progress.textContent = "Error"
             progress.style.color = "red";
+
+            createEmployee.disabled = true;
+            createEmployee.textContent = "Create";
         }
 
     });
