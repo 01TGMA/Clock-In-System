@@ -209,3 +209,17 @@ body{
     list-style-type: none;
     margin-top: 0.55rem;
 }
+
+#allEmployees{
+    position: absolute;
+    margin: auto;
+    background-color: black;
+    width: 90%;
+    height: 10rem;
+    margin-top: 7rem;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    
+}
