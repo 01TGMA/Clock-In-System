@@ -213,8 +213,9 @@ body{
 #allEmployees{
     position: absolute;
     display: grid;
+    column-gap: 50px;
     margin: auto;
-    background-color: black;
+    background-color: white;
     width: 90%;
     height: 10rem;
     margin-top: 7rem;
@@ -226,5 +227,10 @@ body{
 }
 
 #empDiv{
-
+    background-color: bisque;
+    width: 3rem;
+    height: 2rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    color: black;
 }

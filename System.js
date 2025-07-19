@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import { getFirestore, doc, collection, updateDoc, addDoc, query, where, getDocs, arrayUnion } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-import { createElement } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -35,7 +34,7 @@ const validateAdminId = () => {
     );
 
     getDocs(p)
-    .then((querySnapshot) => {
+        .then((querySnapshot) => {
             if (querySnapshot.empty) {
                 wrongInput.innerHTML = "Wrong ID"
                 return;
@@ -52,33 +51,33 @@ const validateAdminId = () => {
                 }, 1500);
 
             })
-    })
-    .catch((error) => {
+        })
+        .catch((error) => {
             wrongInput.textContent = " Error!"
             wrongInput.style.color = "red"
-    });
-    
+        });
+
     // get all employees
     const r = query(
-            collection(db, "users")
+        collection(db, "users")
     );
 
     getDocs(r)
-    .then((querySnapshot) => {
-        if (querySnapshot.empty) {
-        }
-        const allEmployees = [];
+        .then((querySnapshot) => {
+            if (querySnapshot.empty) {
+            }
+            const allEmployees = [];
 
-        querySnapshot.forEach((doc) => {
-            const employee = doc.data()
-            employee.id = doc.id
-            allEmployees.push(employee)
-            sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+            querySnapshot.forEach((doc) => {
+                const employee = doc.data()
+                employee.id = doc.id
+                allEmployees.push(employee)
+                sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+            });
+
+        })
+        .catch((error) => {
         });
-
-    })
-    .catch((error) => {
-    });
 
 
 }
@@ -91,13 +90,13 @@ if (adminBttn) {
 const allemployeeDiv = document.getElementById("allEmployees")
 const storedEmployees = JSON.parse(sessionStorage.getItem("allEmployees")) || [];
 
-if(allemployeeDiv){
+if (allemployeeDiv) {
     let showAllEmployees = ""
-    
-    for(let i = 0; i < storedEmployees.length; i++){
-        showAllEmployees += `<div id="empDiv"> ${storedEmployees[i]} </div>`;
-        
+
+    for (let i = 0; i < storedEmployees.length; i++) {
+        showAllEmployees += `<div id="empDiv"> ${storedEmployees[i].Firstname} <br> ${storedEmployees[i].Lastname} <br> ${storedEmployees[i].position} </div>`;
     }
+    allemployeeDiv.innerHTML = showAllEmployees;
     console.log(showAllEmployees)
 }
 
@@ -135,7 +134,7 @@ const validateEmployeeId = () => {
                 wrongInput.textContent = "Access Granted"
                 wrongInput.style.color = "green"
 
-                
+
 
                 setTimeout(() => {
                     window.location.href = "Check_In_Out.html"
@@ -179,8 +178,7 @@ if (employeedata && employeeName && employeeJobPosition && tdDisplay) {
 
         tdDisplay.innerHTML = disPlay;
     } else {
-        disPlay += `<li id="times"> No CheckIn/Out History </li>`;
-        tdDisplay.innerHTML = disPlay;
+        tdDisplay.innerHTML = `<li id="times"> No CheckIn/Out History </li>`;
     }
 
 
