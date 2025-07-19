@@ -103,8 +103,7 @@ const validateEmployeeId = () => {
                     window.location.href = "Check_In_Out.html"
                 }, 1500)
             });
-
-            
+  
         })
         .catch((error) => {
             wrongInput.textContent = " Error!"
@@ -122,12 +121,53 @@ const employeeName = document.getElementById("EmployeeName");
 const employeeJobPosition = document.getElementById("EmployeePosition")
 const employeedata = JSON.parse(sessionStorage.getItem("EmployeeData"))
 
-if (employeedata && employeeName && employeeJobPosition) {
+//Employee Time history
+const tdDisplay = document.getElementById("display-time")
+
+if (employeedata && employeeName && employeeJobPosition && tdDisplay) {
     //display name
     employeeName.textContent = `Name: ${employeedata.Firstname} ${employeedata.Lastname}`
     employeeJobPosition.textContent = `Position: ${employeedata.position}`
 
+    const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
+
+
+    if(Array.isArray(sessionTime.time)){
+        let disPlay = ""
+
+        for(let i = 0; i < sessionTime.time.length; i++){
+            disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
+        }
+
+        tdDisplay.innerHTML =  disPlay;
+    }else{
+        disPlay += `<li id="times"> No CheckIn/Out History </li>`;
+        tdDisplay.innerHTML = disPlay;
+    }
+    
+
+
+
 }
+
+// if(tdDisplay){
+//      
+//      let disPlay = ""
+//      if(Array.isArray(sessionTime.time)){
+//          disPlay = ""
+
+//          for(let i = 0; i < sessionTime.time.length; i++){
+//            let  disPlay += `<li id="times"> ${sessionTime.time[i]} </li>` 
+//          }
+
+//          tdDisplay.innerHTML =  disPlay;
+
+//      }else{
+//          disPlay += `<li id="times"> No CheckIn/Out History </li>`;
+//          tdDisplay.innerHTML = disPlay;
+//      }
+//     }
+
 
 //Days and Months
 let now = new Date();
@@ -236,7 +276,6 @@ if (checkOut) {
 }
 
 //Display time
-
 const displayUserTime = () => {
 //     const tdDisplay = document.getElementById("display-time")
 //     const sessionTime = JSON.parse(sessionStorage.getItem("EmployeeData")) || {};
@@ -256,7 +295,6 @@ const displayUserTime = () => {
 //         tdDisplay.innerHTML = disPlay;
 //     }
 }
-
 
 // generate ID
 const idGenerator = () => {
