@@ -237,7 +237,7 @@ body{
 .empDiv{
     background-color: bisque;
     width: 12rem;
-    height: 5rem;
+    height: fit-content;
     margin: 0.5rem;
     color: black;
 }
