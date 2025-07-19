@@ -81,8 +81,8 @@ body{
 }
 
 #TandD{
-    width: 22rem;
-    height: 8rem;
+    width: 25rem;
+    height: 9rem;
     border: 0.125rem solid black ;
     border-radius: 0.25rem;
     overflow-y: scroll;
