@@ -63,20 +63,20 @@ const validateAdminId = () => {
     );
 
     getDocs(r)
-        .then((querySnapshot) => {
-            if (querySnapshot.empty) {
-            }
-            const allEmployees = [];
+    .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+        }
+        const allEmployees = [];
 
-            querySnapshot.forEach((doc) => {
-                const employee = doc.data()
-                allEmployees.push(employee)
-                sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
-            });
-
-        })
-        .catch((error) => {
+        querySnapshot.forEach((doc) => {
+            const employee = doc.data()
+            allEmployees.push(employee)
+            sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
         });
+
+    })
+    .catch((error) => {
+    });
 
 
 }
@@ -96,7 +96,7 @@ if (allemployeeDiv) {
         showAllEmployees += `<div class="empDiv">  <p class="emp_I">Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> Job Position: ${storedEmployees[i].position} <br> ID: ${storedEmployees[i].id} </p> </div>`;
     }
     allemployeeDiv.innerHTML = showAllEmployees;
-    console.log(showAllEmployees)
+
 }
 
 
@@ -330,14 +330,16 @@ async function writeData() {
             id: idGenerator(),
             time: []
         });
+        
 
     } catch (e) {
         console.error("Error adding document: ")
-    }    
+    }
 }
 
 //create employee
 if (createEmployee) {
+    const storedEmployees = JSON.parse(sessionStorage.getItem("allEmployees")) || [];
     createEmployee.addEventListener("click", async (e) => {
 
         e.preventDefault();
@@ -351,15 +353,13 @@ if (createEmployee) {
             return;
         }
 
-
         createEmployee.disabled = true;
         createEmployee.textContent = "Saving...";
-
 
         try {
 
             await writeData();
-
+            
             progress.textContent = "Successfull";
             progress.style.color = "green";
 
@@ -378,6 +378,17 @@ if (createEmployee) {
             createEmployee.disabled = true;
             createEmployee.textContent = "Create";
         }
+
+        if (allemployeeDiv) {
+        let showAllEmployees = ""
+
+        for (let i = 0; i < storedEmployees.length; i++) {
+            showAllEmployees += `<div class="empDiv">  <p class="emp_I">Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> Job Position: ${storedEmployees[i].position} <br> ID: ${storedEmployees[i].id} </p> </div>`;
+        }
+        allemployeeDiv.innerHTML = showAllEmployees;
+
+        }
+
 
     });
 }
@@ -401,26 +412,3 @@ if (openIcon) {
         newEmployeeSection.style.display = "block";
     });
 }
-
-
-
-// const r = query(
-//         collection(db, "users")
-//     );
-
-// getDocs(r)
-// .then((querySnapshot) => {
-//     if (querySnapshot.empty) {
-//     }
-//     const allEmployees = [];
-
-//     querySnapshot.forEach((doc) => {
-//         const employee = doc.data()
-//         employee.id = doc.id
-//         allEmployees.push(employee)
-//         sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
-//     });
-
-// })
-// .catch((error) => {
-// });
