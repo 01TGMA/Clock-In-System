@@ -350,6 +350,10 @@ async function writeData() {
 //create employee
 if (createEmployee) {
     const storedEmployees = JSON.parse(sessionStorage.getItem("allEmployees")) || [];
+            if (!Array.isArray(storedEmployees)) {
+            storedEmployees = [];
+        }
+
     createEmployee.addEventListener("click", async (e) => {
 
         e.preventDefault();
@@ -369,7 +373,8 @@ if (createEmployee) {
         try {
 
             await writeData();
-            
+            storedEmployees.push(userObjects)
+            sessionStorage.setItem("allEmployees", JSON.stringify(storedEmployees));
             progress.textContent = "Successfull";
             progress.style.color = "green";
 
