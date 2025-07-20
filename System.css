@@ -269,6 +269,7 @@ body{
 }
 
 #employeeDetailPopup{
+    display: none;
     height: 80%;
     width: 85%;
     position:fixed; 

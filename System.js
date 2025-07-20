@@ -427,18 +427,22 @@ if (openIcon) {
 }
 
 // Attach click event after rendering
+const fullEmployeedisplay =  document.getElementById("employeeDetailPopup") 
 document.querySelectorAll(".empDiv").forEach(emp => {
   emp.addEventListener("click", function() {
     const index = this.dataset.index;
     const empData = storedEmployees[index];
 
+    fullEmployeedisplay.style.display = "block";
+
+
     // You can use a  modal, alert, or DOM element to show more info
-    alert(
-      `Full Info:\n\n` +
-      `Name: ${empData.Firstname} ${empData.Lastname}\n` +
-      `ID: ${empData.id}\n` +
-      `Position: ${empData.position}\n` +
-      `Time: ${empData.time}`
-    );
+    // alert(
+    //   `Full Info:\n\n` +
+    //   `Name: ${empData.Firstname} ${empData.Lastname}\n` +
+    //   `ID: ${empData.id}\n` +
+    //   `Position: ${empData.position}\n` +
+    //   `Time: ${empData.time}`
+    // );
   });
 });
