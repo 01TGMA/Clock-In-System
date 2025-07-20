@@ -172,10 +172,10 @@ body{
     text-align: center;
     overflow: hidden;
     border: 0.1rem solid black;
-    position: fixed; /* stays in place even when scrolling */
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -70%); /* centers the div */
+    transform: translate(-50%, -70%);
     z-index: 9999;
 }
 
@@ -231,12 +231,29 @@ body{
     margin-top: 7rem;
 }
 
+@media screen and (max-width: 830px){
+    #allEmployees{
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #allEmployees{
+        grid-template-columns: repeat(2, auto);
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 480px){
     #allEmployees{
         grid-template-columns: repeat(1, auto);
         justify-content: center;
     }
 }
+
+
+
 
 .empDiv{
     background-color: bisque;
