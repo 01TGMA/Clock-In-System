@@ -267,3 +267,21 @@ body{
 #emp_I{
     margin: auto;
 }
+
+#employeeDetailPopup{
+    height: 80%;
+    width: 85%;
+    position:fixed; 
+    top:10%; left:50%; 
+    transform:translateX(-50%); 
+    border:1px solid #ccc; 
+    padding:1rem; 
+    z-index:1000;
+
+    background: rgba(221, 174, 174, 0.42);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.7px);
+    -webkit-backdrop-filter: blur(5.7px);
+    border: 1px solid rgba(255, 255, 255, 0.31);
+}
