@@ -300,6 +300,7 @@ const displayUserTime = () => {
             disPlay += `<li id="times"> ${sessionTime.time[i]} </li>`
         }
 
+
         tdDisplay.innerHTML = disPlay;
 
     } else {
@@ -323,13 +324,13 @@ let progress = document.getElementById("progress");
 let userObjects = {}
 // create user
 async function writeData() {
-
+    let genratedId = idGenerator();
     try {
         const docRef = await addDoc(collection(db, "users"), {
             Firstname: firstName.value.trim(),
             Lastname: lastName.value.trim(),
             position: position.value.trim(),
-            id: idGenerator(),
+            id: genratedId,
             time: []
         });
         
@@ -337,7 +338,7 @@ async function writeData() {
             Firstname: firstName.value.trim(),
             Lastname: lastName.value.trim(),
             position: position.value.trim(),
-            id: idGenerator(),
+            id: genratedId,
             time: []   
         }
         console.log(userObjects)
