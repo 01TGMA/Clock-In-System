@@ -320,8 +320,10 @@ let position = document.getElementById("JobPosition");
 let createEmployee = document.getElementById("createEmployee");
 let progress = document.getElementById("progress");
 
+let userObjects = {}
 // create user
 async function writeData() {
+
     try {
         const docRef = await addDoc(collection(db, "users"), {
             Firstname: firstName.value.trim(),
@@ -331,6 +333,14 @@ async function writeData() {
             time: []
         });
         
+        userObjects = {
+            Firstname: firstName.value.trim(),
+            Lastname: lastName.value.trim(),
+            position: position.value.trim(),
+            id: idGenerator(),
+            time: []   
+        }
+        console.log(userObjects)
 
     } catch (e) {
         console.error("Error adding document: ")
@@ -379,7 +389,6 @@ if (createEmployee) {
             createEmployee.textContent = "Create";
         }
 
-        
 
     });
 }
