@@ -438,8 +438,7 @@ document.querySelectorAll(".empDiv").forEach(emp => {
       `Name: ${empData.Firstname} ${empData.Lastname}\n` +
       `ID: ${empData.id}\n` +
       `Position: ${empData.position}\n` +
-      `Clock In: ${empData.clockIn || 'N/A'}\n` +
-      `Clock Out: ${empData.clockOut || 'N/A'}`
+      `Time: ${empData.time}`
     );
   });
 });
