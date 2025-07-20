@@ -63,20 +63,20 @@ const validateAdminId = () => {
     );
 
     getDocs(r)
-    .then((querySnapshot) => {
-        if (querySnapshot.empty) {
-        }
-        const allEmployees = [];
+        .then((querySnapshot) => {
+            if (querySnapshot.empty) {
+            }
+            const allEmployees = [];
 
-        querySnapshot.forEach((doc) => {
-            const employee = doc.data()
-            allEmployees.push(employee)
-            sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+            querySnapshot.forEach((doc) => {
+                const employee = doc.data()
+                allEmployees.push(employee)
+                sessionStorage.setItem("allEmployees", JSON.stringify(allEmployees));
+            });
+
+        })
+        .catch((error) => {
         });
-
-    })
-    .catch((error) => {
-    });
 
 
 }
@@ -93,8 +93,8 @@ if (allemployeeDiv) {
     let showAllEmployees = ""
 
     for (let i = 0; i < storedEmployees.length; i++) {
-        showAllEmployees += 
-        `<div class="empDiv" data-index="${i}">
+        showAllEmployees +=
+            `<div class="empDiv" data-index="${i}">
           <p class="emp_I">
             Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> 
             Job Position: ${storedEmployees[i].position} <br> 
@@ -340,13 +340,13 @@ async function writeData() {
             id: genratedId,
             time: []
         });
-        
+
         userObjects = {
             Firstname: firstName.value.trim(),
             Lastname: lastName.value.trim(),
             position: position.value.trim(),
             id: genratedId,
-            time: []   
+            time: []
         }
         console.log(userObjects)
 
@@ -358,9 +358,9 @@ async function writeData() {
 //create employee
 if (createEmployee) {
     const storedEmployees = JSON.parse(sessionStorage.getItem("allEmployees")) || [];
-            if (!Array.isArray(storedEmployees)) {
-            storedEmployees = [];
-        }
+    if (!Array.isArray(storedEmployees)) {
+        storedEmployees = [];
+    }
 
     createEmployee.addEventListener("click", async (e) => {
 
@@ -387,7 +387,7 @@ if (createEmployee) {
             progress.style.color = "green";
 
             createEmployee.textContent = "Create";
-            
+
 
             setTimeout(() => {
                 location.reload();
@@ -427,29 +427,32 @@ if (openIcon) {
 }
 
 // Attach click event after rendering
-const fullEmployeedisplay =  document.getElementById("employeeDetailPopup") 
+const fullEmployeedisplay = document.getElementById("employeeDetailPopup")
 document.querySelectorAll(".empDiv").forEach(emp => {
-  emp.addEventListener("click", function() {
-    const index = this.dataset.index;
-    const empData = storedEmployees[index];
+    emp.addEventListener("click", function () {
+        const index = this.dataset.index;
+        const empData = storedEmployees[index];
 
-    fullEmployeedisplay.style.display = "block";
+        fullEmployeedisplay.style.display = "block";
 
 
-    // You can use a  modal, alert, or DOM element to show more info
-    // alert(
-    //   `Full Info:\n\n` +
-    //   `Name: ${empData.Firstname} ${empData.Lastname}\n` +
-    //   `ID: ${empData.id}\n` +
-    //   `Position: ${empData.position}\n` +
-    //   `Time: ${empData.time}`
-    // );
-  });
+    });
 });
 
+const empContent = document.getElementById("employeeDetailPopup")
+
 let closeEDP = document.getElementById("closeEDP");
+
 if (closeEDP) {
     closeEDP.addEventListener("click", () => {
         fullEmployeedisplay.style.display = "none";
     });
 }
+
+// You can use a  modal, alert, or DOM element to show more info
+empContent.innerHTML = ` 
+    <h2>Full Employee Information:</h2><br>
+    <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
+    ID: ${empData.id}<br>
+    Position: ${empData.position}<br>
+    Time: ${empData.time} `
