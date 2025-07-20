@@ -426,10 +426,12 @@ if (openIcon) {
     });
 }
 
-const empContent = document.getElementById("employeeDetailPopup")
+
 
 // Attach click event after rendering
+const innerDiv = document.getElementById("edpDiv")
 const fullEmployeedisplay = document.getElementById("employeeDetailPopup")
+const timeDiv = document.getElementById("emptime")
 document.querySelectorAll(".empDiv").forEach(emp => {
     emp.addEventListener("click", function () {
         const index = this.dataset.index;
@@ -437,29 +439,40 @@ document.querySelectorAll(".empDiv").forEach(emp => {
 
         fullEmployeedisplay.style.display = "block";
 
-        empContent.innerHTML = ` 
+        edpDiv.innerHTML = ` 
         <h2>Full Employee Information:</h2><br>
         <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
-        ID: ${empData.id}<br>
-        Position: ${empData.position}<br>
-        Time: ${empData.time} `
-        
+        <p>ID: ${empData.id}</p><br>
+        <p>Position: ${empData.position}</p><br>
+        <p>Time:<br></p>`
+
+        timeDiv.innerHTML = "";
+
+        if (Array.isArray(empData.time) && empData.time.length > 0) {
+            for (let i = 0; i < empData.time.length; i++) {
+                timeDiv.innerHTML += `${empData.time[i]}<br>`;
+            }
+        } else {
+            timeDiv.innerHTML = "No time records available.";
+        }
+
+
 
     });
 });
 
 
 
-let closeEDP = document.getElementById("closeEDP");
+const employeeClose = document.getElementById("closeE");
 
-if (closeEDP) {
-    closeEDP.addEventListener("click", () => {
+if (employeeClose) {
+    employeeClose.addEventListener("click", () => {
         fullEmployeedisplay.style.display = "none";
     });
 }
 
 // You can use a  modal, alert, or DOM element to show more info
-// empContent.innerHTML = ` 
+// empContent.innerHTML = `
 //     <h2>Full Employee Information:</h2><br>
 //     <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
 //     ID: ${empData.id}<br>

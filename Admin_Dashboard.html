@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock In System</title>
     <link rel="stylesheet" href="System.css">
 </head>
+
 <body>
-    
-    <div class="top"> 
+
+    <div class="top">
 
         <a> <img src="Icons/Add-person.svg" id="newStaff"></a>
         <a href="Admin_Login.html"> <img src="Icons/Logout.svg" class="icons"> </a>
 
-    </div> 
+    </div>
     <!--Create Employee-->
     <div id="newEmployee">
         <span id="close">&times;</span>
         <h2>New Employee</h2>
-       
+
         <form>
-            <input type="text" class="newemployee" id="createFistName" name="FirstName" placeholder="Enter First Name" required><br>
-            <input type="text" class="newemployee" id="createLastName" name="LastName" placeholder="Enter Last Name" required><br>
-            <input type="text" class="newemployee" id="JobPosition" placeholder="Job Position" required> 
+            <input type="text" class="newemployee" id="createFistName" name="FirstName" placeholder="Enter First Name"
+                required><br>
+            <input type="text" class="newemployee" id="createLastName" name="LastName" placeholder="Enter Last Name"
+                required><br>
+            <input type="text" class="newemployee" id="JobPosition" placeholder="Job Position" required>
             <p id="progress"></p>
             <button id="createEmployee" type="button">Create</button>
         </form>
@@ -30,16 +34,23 @@
 
     <!-- Display All Employees -->
     <div id="allEmployees">
-        
+
     </div>
-    <div  id="employeeDetailPopup">
-        <span id="closeEDP">&times;</span>
+    <div id="employeeDetailPopup">
+        <span id="closeE">&times;</span>
+        <div id="edpDiv">
+
+        </div>
+        <div id="emptime">
+
+        </div>
     </div>
 
-    <!-- fire base sdk  --> 
+    <!-- fire base sdk  -->
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js"></script>
-    <!-- fire base sdk  --> 
+    <!-- fire base sdk  -->
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js"></script>
-    <script  type="module" src="System.js"></script>
+    <script type="module" src="System.js"></script>
 </body>
+
 </html>
