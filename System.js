@@ -93,7 +93,14 @@ if (allemployeeDiv) {
     let showAllEmployees = ""
 
     for (let i = 0; i < storedEmployees.length; i++) {
-        showAllEmployees += `<div class="empDiv">  <p class="emp_I">Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> Job Position: ${storedEmployees[i].position} <br> ID: ${storedEmployees[i].id} </p> </div>`;
+        showAllEmployees += 
+        `<div class="empDiv" data-index="${i}">
+          <p class="emp_I">
+            Name: ${storedEmployees[i].Firstname}  ${storedEmployees[i].Lastname} <br> 
+            Job Position: ${storedEmployees[i].position} <br> 
+            ID: ${storedEmployees[i].id} 
+            </p> 
+          </div>`;
     }
     allemployeeDiv.innerHTML = showAllEmployees;
 
@@ -418,3 +425,21 @@ if (openIcon) {
         newEmployeeSection.style.display = "block";
     });
 }
+
+// Attach click event after rendering
+document.querySelectorAll(".empDiv").forEach(emp => {
+  emp.addEventListener("click", function() {
+    const index = this.dataset.index;
+    const empData = storedEmployees[index];
+
+    // You can use a  modal, alert, or DOM element to show more info
+    alert(
+      `Full Info:\n\n` +
+      `Name: ${empData.Firstname} ${empData.Lastname}\n` +
+      `ID: ${empData.id}\n` +
+      `Position: ${empData.position}\n` +
+      `Clock In: ${empData.clockIn || 'N/A'}\n` +
+      `Clock Out: ${empData.clockOut || 'N/A'}`
+    );
+  });
+});
