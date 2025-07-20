@@ -446,3 +446,10 @@ document.querySelectorAll(".empDiv").forEach(emp => {
     // );
   });
 });
+
+let closeEDP = document.getElementById("closeEDP");
+if (closeEDP) {
+    closeEDP.addEventListener("click", () => {
+        fullEmployeedisplay.style.display = "none";
+    });
+}
