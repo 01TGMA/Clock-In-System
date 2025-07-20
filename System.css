@@ -163,15 +163,20 @@ body{
     display: none;
     background-color: beige;
     margin: auto;
-    position: relative;
+    position: fixed;
     width: 19rem;
-    height: 19rem;
+    height: 21rem;
     z-index: 99999;
     justify-content: center;
     align-items: center;
     text-align: center;
     overflow: hidden;
     border: 0.1rem solid black;
+    position: fixed; /* stays in place even when scrolling */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%); /* centers the div */
+    z-index: 9999;
 }
 
 #newEmployee h2{
