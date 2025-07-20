@@ -1,35 +1,35 @@
-body{
+body {
     margin: auto;
     background-color: beige;
     height: 100%;
     overflow-y: auto;
 }
 
-.top{
+.top {
     width: 100%;
     height: 4rem;
     color: white;
-    position:fixed;
+    position: fixed;
     top: 0;
 }
 
-#top{
+#top {
     position: fixed;
 }
 
-.icons{
+.icons {
     position: absolute;
     right: 0;
     margin: 1rem;
 }
 
-#newStaff{
+#newStaff {
     position: absolute;
     left: 0;
     margin: 1rem;
 }
 
-.inputId{
+.inputId {
     width: 24rem;
     height: 2rem;
     text-align: center;
@@ -38,7 +38,7 @@ body{
     margin: auto;
 }
 
-.loginBttn{
+.loginBttn {
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -49,23 +49,23 @@ body{
     background-color: black;
 }
 
-.LoginId{
+.LoginId {
     display: grid;
     margin-top: 10rem;
     margin-bottom: 5rem;
     width: 100vw;
     text-align: center;
-} 
+}
 
-.inPut{
+.inPut {
     margin: auto;
 }
 
-.Bttn{
+.Bttn {
     margin: auto;
 }
 
-#adminWarning{
+#adminWarning {
     position: absolute;
     width: 10rem;
     height: fit-content;
@@ -80,14 +80,14 @@ body{
     color: black;
 }
 
-#incorrect{
+#incorrect {
     color: red;
 }
 
-#TandD{
+#TandD {
     width: 25rem;
     height: 9rem;
-    border: 0.125rem solid black ;
+    border: 0.125rem solid black;
     border-radius: 0.25rem;
     overflow-y: scroll;
     background-color: white;
@@ -95,33 +95,34 @@ body{
     margin-top: 4rem;
 }
 
-#mainItems{
+#mainItems {
     margin: auto;
     width: fit-content;
-    height: fit-content; 
+    height: fit-content;
 }
 
-#info{
+#info {
     margin-top: 3.5rem;
     margin-left: 2rem;
     left: 0;
 }
 
-#checkbtns{
-    display: flex;  
-    margin: auto ;
+#checkbtns {
+    display: flex;
+    margin: auto;
     position: absolute;
     justify-content: space-between;
     height: fit-content;
     width: 22rem;
     justify-content: center;
     gap: 1rem;
-    margin: 1rem auto;   
+    margin: 1rem auto;
     justify-content: center;
     align-items: center;
 }
 
-#checkin, #checkout{
+#checkin,
+#checkout {
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -132,7 +133,7 @@ body{
     background-color: black;
 }
 
-#download{
+#download {
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -143,23 +144,23 @@ body{
     background-color: black;
 }
 
-#bottom{
+#bottom {
     position: absolute;
     right: 10rem;
-    bottom:10rem;
+    bottom: 10rem;
 }
 
-.back{
+.back {
     position: absolute;
     left: 0rem;
     margin: 1rem;
 }
 
-#times{
+#times {
     color: black;
 }
 
-#newEmployee{
+#newEmployee {
     display: none;
     background-color: beige;
     margin: auto;
@@ -179,11 +180,11 @@ body{
     z-index: 9999;
 }
 
-#newEmployee h2{
+#newEmployee h2 {
     color: black;
 }
 
-.newemployee{
+.newemployee {
     margin-top: 0.5rem;
     text-align: center;
     width: 10rem;
@@ -192,7 +193,7 @@ body{
     border: 0;
 }
 
-#createEmployee{
+#createEmployee {
     width: 6rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -203,23 +204,23 @@ body{
     background-color: black;
 }
 
-#progress{
+#progress {
     margin-top: 0.5rem;
     margin-bottom: 0rem;
 }
 
-#close{
+#close {
     display: inline-block;
     cursor: pointer;
     font-size: 2rem;
 }
 
-#times{
+#times {
     list-style-type: none;
     margin-top: 0.55rem;
 }
 
-#allEmployees{
+#allEmployees {
     display: grid;
     box-sizing: border-box;
     gap: 1rem;
@@ -231,28 +232,28 @@ body{
     margin-top: 7rem;
 }
 
-@media screen and (max-width: 830px){
-    #allEmployees{
+@media screen and (max-width: 830px) {
+    #allEmployees {
         grid-template-columns: repeat(3, auto);
         justify-content: center;
     }
 }
 
-@media screen and (max-width: 768px){
-    #allEmployees{
+@media screen and (max-width: 768px) {
+    #allEmployees {
         grid-template-columns: repeat(2, auto);
         justify-content: center;
     }
 }
 
-@media screen and (max-width: 480px){
-    #allEmployees{
+@media screen and (max-width: 480px) {
+    #allEmployees {
         grid-template-columns: repeat(1, auto);
         justify-content: center;
     }
 }
 
-.empDiv{
+.empDiv {
     background-color: bisque;
     width: 15rem;
     height: 7rem;
@@ -260,35 +261,48 @@ body{
     color: black;
 }
 
-.empDiv p{
+.empDiv p {
     margin: 1rem;
 }
 
-#emp_I{
+#emp_I {
     margin: auto;
 }
 
-#employeeDetailPopup{
+#employeeDetailPopup {
     display: none;
     height: 80%;
     width: 85%;
-    position:fixed; 
-    top:10%; left:50%; 
-    transform:translateX(-50%); 
-    border:1px solid #ccc; 
-    padding:1rem; 
-    z-index:1000;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #ccc;
+    padding: 1rem;
+    z-index: 1000;
     text-align: center;
     background: rgba(221, 174, 174, 0.42);
-    border-radius: 16px;
+    border-radius: 1rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.7px);
     -webkit-backdrop-filter: blur(5.7px);
     border: 1px solid rgba(255, 255, 255, 0.31);
 }
 
-#closeE{
+#closeE {
     cursor: pointer;
     font-size: 2rem;
     z-index: 1000;
+}
+
+#emptime {
+    margin: 0.5rem;
+}
+
+#Dowloadbtn {
+    border-radius: 0.5rem;
+    background-color: beige;
+    width: 6rem;
+    height: 2rem;
+    border: none;
 }
