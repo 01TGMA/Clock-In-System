@@ -426,6 +426,8 @@ if (openIcon) {
     });
 }
 
+const empContent = document.getElementById("employeeDetailPopup")
+
 // Attach click event after rendering
 const fullEmployeedisplay = document.getElementById("employeeDetailPopup")
 document.querySelectorAll(".empDiv").forEach(emp => {
@@ -435,11 +437,18 @@ document.querySelectorAll(".empDiv").forEach(emp => {
 
         fullEmployeedisplay.style.display = "block";
 
+        empContent.innerHTML = ` 
+        <h2>Full Employee Information:</h2><br>
+        <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
+        ID: ${empData.id}<br>
+        Position: ${empData.position}<br>
+        Time: ${empData.time} `
+        
 
     });
 });
 
-const empContent = document.getElementById("employeeDetailPopup")
+
 
 let closeEDP = document.getElementById("closeEDP");
 
@@ -450,9 +459,9 @@ if (closeEDP) {
 }
 
 // You can use a  modal, alert, or DOM element to show more info
-empContent.innerHTML = ` 
-    <h2>Full Employee Information:</h2><br>
-    <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
-    ID: ${empData.id}<br>
-    Position: ${empData.position}<br>
-    Time: ${empData.time} `
+// empContent.innerHTML = ` 
+//     <h2>Full Employee Information:</h2><br>
+//     <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
+//     ID: ${empData.id}<br>
+//     Position: ${empData.position}<br>
+//     Time: ${empData.time} `

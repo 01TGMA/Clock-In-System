@@ -278,7 +278,7 @@ body{
     border:1px solid #ccc; 
     padding:1rem; 
     z-index:1000;
-
+    text-align: center;
     background: rgba(221, 174, 174, 0.42);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
