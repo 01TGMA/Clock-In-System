@@ -96,7 +96,14 @@ Create a firebase.js file and paste your Firebase credentials:
     - Clicking on anynof the employees displays their full information,(names, position, and check-in/out history) and a download button that allows you to download the full information of the employee in PDF format
     - New employees can be created by clicking on the `👤<sup>+</sup>` icon and fill in the appropriate detials, then click on create. 
     
-##
+## Link To live Version
+[clock-in-system](clock-in-system.netlify.app)
+>Employee ID Number --> CLS153734
+> Admin ID Number --> CLS00001
+### NOTE
+    There are 3 admin numbers change 1 at the end to either 2 or 3 to use the other ID numbers
+    Also Use the admin ID numbers to view all other employees and their ID's
+
 ## Screenshots
 ![Grid View](CLS-Images/Employee_Login.jpeg)
 ![Grid View](CLS-Images/Empolyee_Download_Info.jpeg)
