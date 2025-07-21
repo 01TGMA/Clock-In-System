@@ -1,31 +1,5 @@
 
 
-## 📦 Getting Started
-
-1. **Clone the repo**:
-   ```bash
-   git clone https://github.com/your-username/employee-attendance-dashboard.git
-   cd employee-attendance-dashboard
-
-2. **Add Firebase Config**:
-
-Create a firebase.js file and paste your Firebase credentials:
-```
-    const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_ID",
-    appId: "YOUR_APP_ID"
-    };
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(); // Or use realtime DB
-
-```
-
-**3. Open index.html in a browser (double-click or use Live Server).**
 
 **🧪 How It Works**
 Every .empDiv holds a specific employee.
@@ -100,3 +74,30 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 ├── /Flow              
 └── README.md
 ```
+
+## Getting Started
+
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/your-username/employee-attendance-dashboard.git
+   cd employee-attendance-dashboard
+
+2. **Add Firebase Config**:
+
+Create a firebase.js file and paste your Firebase credentials:
+```
+    const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_ID",
+    appId: "YOUR_APP_ID"
+    };
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore(); // Or use realtime DB
+
+```
+
+**3. Open index.html in a browser (double-click or use Live Server).**
