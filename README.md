@@ -113,7 +113,7 @@ Create a firebase.js file and paste your Firebase credentials:
 ![Grid View](CLS-Images/Admin_Dashboard.jpeg)
 
 ## License
-    Licensed under the [MIT](LICENSE) License.
+Licensed under the [MIT](LICENSE) License.
 
 ## Author
 ### ThankGod Ausaji
