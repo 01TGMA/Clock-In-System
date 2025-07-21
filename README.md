@@ -80,7 +80,7 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 2. **Add Firebase Config**:
 
     Create a firebase.js file and paste your Firebase credentials:
-```
+```bash
     const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
@@ -98,14 +98,14 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 3. **Open index.html in a browser (double-click or use Live Server).**
     *How It Works*
     ### Employee End: 
-        - Employee Inputs their ID number on the Employee login page (Default page)
-        - If ID number exist access to the check-in/out will be given
-        - On that page employee sees their full name, job position and check-in/out history(if any), and check-in/out buttons. 
-        - When they are done, they  log out using at the top right conner of the page. 
+    - Employee Inputs their ID number on the Employee login page (Default page)
+    - If ID number exist access to the check-in/out will be given
+    - On that page employee sees their full name, job position and check-in/out history(if any), and check-in/out buttons. 
+    - When they are done, they  log out using at the top right conner of the page. 
 
     *To navigate to the admin login page*
     > click the ⚙ icon at the top right of the employee login page
-    
+
         
     ### Admin End:
     
