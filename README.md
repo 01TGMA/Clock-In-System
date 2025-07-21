@@ -58,7 +58,7 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
    cd employee-attendance-dashboard
    ```
 
-2. **Add Firebase Config**:
+2. **Add Firebase Config**:  
 Create a firebase.js file and paste your Firebase credentials:
     ```bash
     const firebaseConfig = {
@@ -74,9 +74,10 @@ Create a firebase.js file and paste your Firebase credentials:
     const db = firebase.firestore(); // Or use realtime DB
     ```
 
-3. **Open index.html in a browser (double-click or use Live Server).**
+3. **Open index.html in a browser (double-click or use Live Server).**  
 
-**How It Works**
+## How It Works  
+
 ### Employee End: 
 - Employee Inputs their ID number on the Employee login page (Default page)  
 - If ID number exist access is granted to the check-in/out will be given  
