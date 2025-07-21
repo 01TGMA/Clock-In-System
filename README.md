@@ -1,14 +1,8 @@
 
 
 
-**🧪 How It Works**
-Every .empDiv holds a specific employee.
 
-Clicking it triggers a modal (#fullEmployeedisplay) with full employee data.
 
-The modal has a Download PDF button that calls jsPDF to generate and download details.
-
-PDF includes name, ID, position, and timestamps (if any).
 
 🖼️ Screenshots
 (You can insert screenshots below — recommended size: 600px wide)
@@ -36,18 +30,18 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 🔍 **Grid view of employees**
-- 📋 **Click any employee to view full details**
-- 🧾 **Display time logs per employee**
-- ❌ **Handles employees without time logs**
-- 📥 **Download details as PDF using jsPDF**
-- 🔗 **Connected to Firebase (Firestore or Realtime DB)**
+-  **Grid view of employees**
+-  **Click any employee to view full details**
+-  **Display time logs per employee**
+-  **Handles employees without time logs**
+-  **Download details as PDF using jsPDF**
+-  **Connected to Firebase (Firestore or Realtime DB)**
 
 ---
 
-## 🛠️ Built With
+##  Built With
 
 - **HTML5**  
 - **CSS3**  
@@ -57,7 +51,7 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```plaintext
 /Clock-In-System
@@ -74,6 +68,7 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 ├── /Flow              
 └── README.md
 ```
+---
 
 ## Getting Started
 
@@ -84,7 +79,7 @@ A **responsive**, Firebase-powered web dashboard for managing employee clock-ins
 
 2. **Add Firebase Config**:
 
-Create a firebase.js file and paste your Firebase credentials:
+    Create a firebase.js file and paste your Firebase credentials:
 ```
     const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
@@ -95,9 +90,33 @@ Create a firebase.js file and paste your Firebase credentials:
     appId: "YOUR_APP_ID"
     };
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(); // Or use realtime DB
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(); // Or use realtime DB
 
 ```
 
-**3. Open index.html in a browser (double-click or use Live Server).**
+3. **Open index.html in a browser (double-click or use Live Server).**
+    *How It Works*
+    ### Employee End: 
+        - Employee Inputs their ID number on the Employee login page (Default page)
+        - If ID number exist access to the check-in/out will be given
+        - On that page employee sees their full name, job position and check-in/out history(if any), and check-in/out buttons. 
+        - When they are done, they  log out using at the top right conner of the page. 
+
+    *To navigate to the admin login page*
+    > click the ⚙ icon at the top right of the employee login page
+    
+        
+    ### Admin End:
+    
+    
+        
+
+
+    Every .empDiv holds a specific employee.
+
+    Clicking it triggers a modal (#fullEmployeedisplay) with full employee data.
+
+    The modal has a Download PDF button that calls jsPDF to generate and download details.
+
+    PDF includes name, ID, position, and timestamps (if any).
