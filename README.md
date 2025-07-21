@@ -108,9 +108,9 @@ Create a firebase.js file and paste your Firebase credentials:
     Licensed under the [MIT](LICENSE) License.
 
 ## Author
-    ###ThankGod Ausaji
-    GitHub: @[01TGMA](https://github.com/01TGMA)
-    LinkedIn: [ThankGod Ausaji](https://www.linkedin.com/in/thankgod-ausaji/)
+###ThankGod Ausaji
+GitHub:[01TGMA](https://github.com/01TGMA)
+LinkedIn: [ThankGod Ausaji](https://www.linkedin.com/in/thankgod-ausaji/)
 
 ## Show Support
 If you found this project useful, give it a ⭐ on GitHub and share it with others!
