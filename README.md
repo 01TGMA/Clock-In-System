@@ -85,6 +85,7 @@ Create a firebase.js file and paste your Firebase credentials:
 
 *To navigate to the admin login page from employee login*  
 > click the `⚙` icon at the top right of the employee login page  
+
 *To navigate to employee login page from admin login page*  
 > click on the `👥` icon at the top right of the admin page  
 
