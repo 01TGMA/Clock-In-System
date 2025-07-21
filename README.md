@@ -96,7 +96,7 @@ Create a firebase.js file and paste your Firebase credentials:
     - Clicking on anynof the employees displays their full information,(names, position, and check-in/out history) and a download button that allows you to download the full information of the employee in PDF format
     - New employees can be created by clicking on the `👤<sup>+</sup>` icon and fill in the appropriate detials, then click on create. 
     
-
+##
 ## Screenshots
     (You can insert screenshots below — recommended size: 600px wide)
 
@@ -104,7 +104,7 @@ Create a firebase.js file and paste your Firebase credentials:
     Licensed under the [MIT](LICENSE) License.
 
 ## Author
-    ThankGod Ausaji
+    ###ThankGod Ausaji
     GitHub: @[01TGMA](https://github.com/01TGMA)
     LinkedIn: [ThankGod Ausaji](https://www.linkedin.com/in/thankgod-ausaji/)
 
