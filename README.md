@@ -98,7 +98,7 @@ Create a firebase.js file and paste your Firebase credentials:
     
 ##
 ## Screenshots
-<img src="CLS-Images/Employee_Login.jpeg" width="600"/>
+![Grid View](CLS-Images/Employee_Login.jpeg)
 ![Grid View](CLS-Images/Empolyee_Download_Info.jpeg)
 ![Grid View](CLS-Images/E_Out.jpeg)
 ![Grid View](CLS-Images/Create_New_Employee.jpeg)
