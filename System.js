@@ -20,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
+
 const adminBttn = document.getElementById("AdminSubmit");
 const employeeBttn = document.getElementById("Esubmit");
 
@@ -426,18 +427,22 @@ if (openIcon) {
     });
 }
 
-
-
 // Attach click event after rendering
 const innerDiv = document.getElementById("edpDiv")
 const fullEmployeedisplay = document.getElementById("employeeDetailPopup")
 const timeDiv = document.getElementById("emptime")
+
+let currentEmployeeData = null;
+
+
 document.querySelectorAll(".empDiv").forEach(emp => {
     emp.addEventListener("click", function () {
         const index = this.dataset.index;
         const empData = storedEmployees[index];
+        currentEmployeeData = empData
 
         fullEmployeedisplay.style.display = "block";
+
 
         edpDiv.innerHTML = ` 
         <h2>Full Employee Information:</h2><br>
@@ -471,10 +476,37 @@ if (employeeClose) {
     });
 }
 
-// You can use a  modal, alert, or DOM element to show more info
-// empContent.innerHTML = `
-//     <h2>Full Employee Information:</h2><br>
-//     <p>Name: ${empData.Firstname} ${empData.Lastname}</p><br>
-//     ID: ${empData.id}<br>
-//     Position: ${empData.position}<br>
-//     Time: ${empData.time} `
+
+const downloadBtn = document.getElementById("Dowloadbtn")
+// Dowload Info
+
+
+if (downloadBtn) {
+    downloadBtn.addEventListener("click", () => {
+        if (!currentEmployeeData) {
+            alert("No employee data to download.");
+            return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        let content = `Full Employee Information\n\n`;
+        content += `Name: ${currentEmployeeData.Firstname} ${currentEmployeeData.Lastname}\n`;
+        content += `ID: ${currentEmployeeData.id}\n`;
+        content += `Position: ${currentEmployeeData.position}\n\n`;
+        content += `Check-in/Out Times:\n`;
+
+        if (Array.isArray(currentEmployeeData.time) && currentEmployeeData.time.length > 0) {
+            currentEmployeeData.time.forEach((time, i) => {
+                content += `${i + 1}. ${time}\n`;
+            });
+        } else {
+            content += "No time records available.\n";
+        }
+
+        doc.text(content, 10, 10);
+        doc.save(`${currentEmployeeData.Firstname}_${currentEmployeeData.Lastname}_info.pdf`);
+    });
+}
+
