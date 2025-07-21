@@ -1,0 +1,13 @@
+# Firebase config
+firebase-config.js
+
+
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# node modules (if using Node.js)
+node_modules/
