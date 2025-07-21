@@ -98,11 +98,11 @@ Create a firebase.js file and paste your Firebase credentials:
     
 ##
 ## Screenshots
-    ![Website Image](./CLS-Images/Employee_Login.jpeg)
-    ![Website Image](./CLS-Images/Empolyee_Download_Info.jpeg)
-    ![Website Image](./CLS-Images/E_Out.jpeg)
-    ![Website Image](./CLS-Images/Create_New_Employee.jpeg)
-    ![Website Image](./CLS-Images/Admin_Dashboard.jpeg)
+    ![Grid View](CLS-Images/Employee_Login.jpeg)
+    ![Grid View](CLS-Images/Empolyee_Download_Info.jpeg)
+    ![Grid View](CLS-Images/E_Out.jpeg)
+    ![Grid View](CLS-Images/Create_New_Employee.jpeg)
+    ![Grid View](CLS-Images/Admin_Dashboard.jpeg)
 
 ## License
     Licensed under the [MIT](LICENSE) License.
