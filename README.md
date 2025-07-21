@@ -75,7 +75,8 @@ Create a firebase.js file and paste your Firebase credentials:
     ```
 
 3. **Open index.html in a browser (double-click or use Live Server).**
-    *How It Works*
+
+**How It Works**
     ### Employee End: 
     - Employee Inputs their ID number on the Employee login page (Default page)
     - If ID number exist access is granted to the check-in/out will be given
@@ -83,9 +84,9 @@ Create a firebase.js file and paste your Firebase credentials:
     - When they are done, they  log out using at the top right conner of the page. 
 
     *To navigate to the admin login page from employee login*
-    > click the ⚙ icon at the top right of the employee login page
+    > click the `⚙` icon at the top right of the employee login page
     *To navigate to employee login page from admin login page*
-    > click on the 👥 icon at the top right of the admin page
+    > click on the `👥` icon at the top right of the admin page
 
         
     ### Admin End:
@@ -93,18 +94,19 @@ Create a firebase.js file and paste your Firebase credentials:
     - If Admin ID number exsit acess is granted to admin dashboard
     - The Dashboard shows eall the employees in the commany at the moment.
     - Clicking on anynof the employees displays their full information,(names, position, and check-in/out history) and a download button that allows you to download the full information of the employee in PDF format
+    - New employees can be created by clicking on the `👤<sup>+</sup>` icon and fill in the appropriate detials, then click on create. 
     
 
 ## Screenshots
-(You can insert screenshots below — recommended size: 600px wide)
+    (You can insert screenshots below — recommended size: 600px wide)
 
 ## License
-Licensed under the MIT License.
+    Licensed under the [MIT](LICENSE) License.
 
 ## Author
-Your Name
-GitHub: @yourusername
-LinkedIn: @
+    ThankGod Ausaji
+    GitHub: @[01TGMA](https://github.com/01TGMA)
+    LinkedIn: [ThankGod Ausaji](https://www.linkedin.com/in/thankgod-ausaji/)
 
 ## Show Support
 If you found this project useful, give it a ⭐ on GitHub and share it with others!
